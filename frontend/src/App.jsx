@@ -11,7 +11,7 @@ import Contacto from './pages/Contacto'
 
 function App() {
   return (
-    <Router>
+    <Router basename="/lacueva-club">
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <main className="flex-grow">
