@@ -27,7 +27,7 @@ export default function Home() {
           <div className="max-w-2xl">
             <div className="flex items-center gap-4 mb-6 animate-fade-in">
               <img
-                src="/images/logo-lacueva.png"
+                src="./images/logo-lacueva.jpg"
                 alt="Club Campestre La Cueva"
                 className="h-24 w-auto drop-shadow-lg"
                 onError={(e) => e.target.style.display = 'none'}
@@ -67,6 +67,16 @@ export default function Home() {
       {/* Features Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Piscina Image */}
+          <div className="mb-16 rounded-lg overflow-hidden shadow-lg">
+            <img
+              src="./images/piscina-olimpica.jpg"
+              alt="Piscina Olímpica"
+              className="w-full h-96 object-cover"
+              onError={(e) => e.target.style.display = 'none'}
+            />
+          </div>
+
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Nuestras Instalaciones

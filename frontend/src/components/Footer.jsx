@@ -12,7 +12,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <img
-                src="/images/logo-lacueva.png"
+                src="./images/logo-lacueva.jpg"
                 alt="Club Campestre La Cueva"
                 className="h-10 w-auto"
                 onError={(e) => e.target.style.display = 'none'}

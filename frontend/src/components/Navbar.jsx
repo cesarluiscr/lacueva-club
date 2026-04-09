@@ -14,7 +14,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
             <img
-              src="/images/logo-lacueva.png"
+              src="./images/logo-lacueva.jpg"
               alt="Club Campestre La Cueva"
               className="h-12 w-auto"
               onError={(e) => e.target.style.display = 'none'}
