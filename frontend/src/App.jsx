@@ -1,5 +1,6 @@
 import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 import { ThemeProvider } from './context/ThemeContext'
+import SEO from './components/SEO'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
@@ -14,6 +15,7 @@ function App() {
   return (
     <ThemeProvider>
       <Router>
+        <SEO />
         <div className="flex flex-col min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-white transition-colors">
           <Navbar />
           <main className="flex-grow">

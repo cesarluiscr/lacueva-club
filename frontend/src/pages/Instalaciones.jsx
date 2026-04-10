@@ -93,6 +93,7 @@ export default function Instalaciones() {
                   src={inst.imagen}
                   alt={inst.nombre}
                   className="w-full h-48 object-cover"
+                  loading="lazy"
                 />
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-gray-900 mb-2">
@@ -127,6 +128,7 @@ export default function Instalaciones() {
                 src={selectedInstalacion.imagen}
                 alt={selectedInstalacion.nombre}
                 className="w-full h-64 object-cover"
+                loading="lazy"
               />
               <button
                 onClick={() => setSelectedInstalacion(null)}

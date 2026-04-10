@@ -30,6 +30,7 @@ export default function Home() {
                 src="./images/logo-lacueva.jpg"
                 alt="Club Campestre La Cueva"
                 className="h-24 w-auto drop-shadow-lg"
+                loading="lazy"
                 onError={(e) => e.target.style.display = 'none'}
               />
               <h1 className="text-5xl md:text-6xl font-bold text-white">
@@ -73,6 +74,7 @@ export default function Home() {
               src="./images/piscina-olimpica.jpg"
               alt="Piscina Olímpica"
               className="w-full h-96 object-cover"
+              loading="lazy"
               onError={(e) => e.target.style.display = 'none'}
             />
           </div>
