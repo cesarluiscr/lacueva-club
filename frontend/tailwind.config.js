@@ -22,8 +22,7 @@ export default {
         'montserrat': ['Montserrat', 'sans-serif'],
         'roboto': ['Roboto', 'sans-serif'],
         'script': ['Playfair Display', 'serif'],
-        'elegant': ['Great Vibes', 'cursive'],
-        'dancing': ['Dancing Script', 'cursive'],
+        'elegant': ['Pacifico', 'cursive'],
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
