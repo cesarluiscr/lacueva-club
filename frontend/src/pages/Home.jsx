@@ -34,10 +34,19 @@ export default function Home() {
                 onError={(e) => e.target.style.display = 'none'}
               />
               <div>
-                <h2 className="club-title text-blue-100 mb-2">
-                  Club Campestre
+                <h2 className="text-lg md:text-xl font-bold text-blue-100 tracking-widest mb-2" style={{letterSpacing: '2px'}}>
+                  CLUB CAMPESTRE
                 </h2>
-                <h1 className="logo-text-hero">
+                <h1 style={{
+                  fontFamily: "'Pacifico', cursive",
+                  fontSize: '5rem',
+                  fontWeight: '400',
+                  color: 'white',
+                  textShadow: '2px 2px 6px rgba(0, 0, 0, 0.3)',
+                  letterSpacing: '2px',
+                  lineHeight: '1.2',
+                  display: 'block'
+                }}>
                   La Cueva
                 </h1>
               </div>

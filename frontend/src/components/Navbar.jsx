@@ -33,8 +33,17 @@ export default function Navbar() {
               </g>
             </svg>
             <div className="hidden sm:flex flex-col items-start">
-              <span className="club-title text-blue-600">Club Campestre</span>
-              <span className="logo-text">La Cueva</span>
+              <span className="text-xs font-bold text-blue-600 tracking-widest" style={{letterSpacing: '2px'}}>CLUB CAMPESTRE</span>
+              <span style={{
+                fontFamily: "'Pacifico', cursive",
+                fontSize: '2.8rem',
+                fontWeight: '400',
+                color: 'white',
+                textShadow: '2px 2px 4px rgba(0, 102, 204, 0.4)',
+                letterSpacing: '1px',
+                lineHeight: '1.2',
+                display: 'block'
+              }}>La Cueva</span>
             </div>
           </Link>
 
