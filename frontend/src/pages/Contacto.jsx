@@ -122,26 +122,26 @@ export default function Contacto() {
 
               <div className="space-y-4">
                 {/* Phone */}
-                <div className="flex gap-4 p-4 rounded-lg bg-blue-50 dark:bg-blue-900/30 hover:bg-blue-100 dark:hover:bg-blue-900/50 transition">
-                  <div className="p-3 rounded-lg bg-blue-600 text-white">
-                    <Phone size={24} />
+                <div className="flex gap-4 p-4 rounded-lg bg-blue-50 dark:bg-blue-900/30 hover:shadow-lg hover:scale-105 transition-all">
+                  <div className="p-3 rounded-lg bg-gradient-to-br from-blue-600 to-blue-700 text-white shadow-lg">
+                    <Phone size={28} strokeWidth={2.5} />
                   </div>
                   <div className="flex-1">
                     <h3 className="font-bold text-gray-900 dark:text-white mb-1">Teléfono</h3>
-                    <p className="text-gray-600 dark:text-gray-300">2433-7171</p>
+                    <p className="text-gray-600 dark:text-gray-300 font-semibold">2433-7171</p>
                   </div>
                 </div>
 
                 {/* WhatsApp */}
-                <div className="flex gap-4 p-4 rounded-lg bg-green-50 dark:bg-green-900/30 hover:bg-green-100 dark:hover:bg-green-900/50 transition">
-                  <div className="p-3 rounded-lg bg-green-600 text-white">
-                    <MessageCircle size={24} />
+                <div className="flex gap-4 p-4 rounded-lg bg-green-50 dark:bg-green-900/30 hover:shadow-lg hover:scale-105 transition-all">
+                  <div className="p-3 rounded-lg bg-gradient-to-br from-green-500 to-green-600 text-white shadow-lg">
+                    <MessageCircle size={28} strokeWidth={2.5} />
                   </div>
                   <div className="flex-1">
                     <h3 className="font-bold text-gray-900 dark:text-white mb-1">WhatsApp</h3>
                     <a
                       href="https://wa.me/50672434203"
-                      className="text-green-600 dark:text-green-400 hover:underline font-medium"
+                      className="text-green-600 dark:text-green-400 hover:underline font-semibold text-lg"
                     >
                       7243-4203
                     </a>
@@ -149,15 +149,15 @@ export default function Contacto() {
                 </div>
 
                 {/* Email */}
-                <div className="flex gap-4 p-4 rounded-lg bg-red-50 dark:bg-red-900/30 hover:bg-red-100 dark:hover:bg-red-900/50 transition">
-                  <div className="p-3 rounded-lg bg-red-600 text-white">
-                    <Mail size={24} />
+                <div className="flex gap-4 p-4 rounded-lg bg-red-50 dark:bg-red-900/30 hover:shadow-lg hover:scale-105 transition-all">
+                  <div className="p-3 rounded-lg bg-gradient-to-br from-red-600 to-red-700 text-white shadow-lg">
+                    <Mail size={28} strokeWidth={2.5} />
                   </div>
                   <div className="flex-1">
                     <h3 className="font-bold text-gray-900 dark:text-white mb-1">Email</h3>
                     <a
                       href="mailto:info@lacuevasa.com"
-                      className="text-red-600 dark:text-red-400 hover:underline font-medium"
+                      className="text-red-600 dark:text-red-400 hover:underline font-semibold"
                     >
                       info@lacuevasa.com
                     </a>
@@ -165,26 +165,26 @@ export default function Contacto() {
                 </div>
 
                 {/* Location */}
-                <div className="flex gap-4 p-4 rounded-lg bg-purple-50 dark:bg-purple-900/30 hover:bg-purple-100 dark:hover:bg-purple-900/50 transition">
-                  <div className="p-3 rounded-lg bg-purple-600 text-white">
-                    <MapPin size={24} />
+                <div className="flex gap-4 p-4 rounded-lg bg-purple-50 dark:bg-purple-900/30 hover:shadow-lg hover:scale-105 transition-all">
+                  <div className="p-3 rounded-lg bg-gradient-to-br from-purple-600 to-purple-700 text-white shadow-lg">
+                    <MapPin size={28} strokeWidth={2.5} />
                   </div>
                   <div className="flex-1">
                     <h3 className="font-bold text-gray-900 dark:text-white mb-1">Ubicación</h3>
-                    <p className="text-gray-600 dark:text-gray-300">
+                    <p className="text-gray-600 dark:text-gray-300 font-semibold">
                       Alajuela, Costa Rica
                     </p>
                   </div>
                 </div>
 
                 {/* Hours */}
-                <div className="flex gap-4 p-4 rounded-lg bg-yellow-50 dark:bg-yellow-900/30 hover:bg-yellow-100 dark:hover:bg-yellow-900/50 transition">
-                  <div className="p-3 rounded-lg bg-yellow-600 text-white">
-                    <Clock size={24} />
+                <div className="flex gap-4 p-4 rounded-lg bg-amber-50 dark:bg-amber-900/30 hover:shadow-lg hover:scale-105 transition-all">
+                  <div className="p-3 rounded-lg bg-gradient-to-br from-amber-500 to-amber-600 text-white shadow-lg">
+                    <Clock size={28} strokeWidth={2.5} />
                   </div>
                   <div className="flex-1">
                     <h3 className="font-bold text-gray-900 dark:text-white mb-1">Horarios de Atención</h3>
-                    <p className="text-gray-600 dark:text-gray-300 text-sm">
+                    <p className="text-gray-600 dark:text-gray-300 text-sm font-medium">
                       Lunes - Viernes: 8:00 AM - 5:00 PM<br />
                       Sábado: 9:00 AM - 1:00 PM<br />
                       Domingos: Cerrado

@@ -1,12 +1,30 @@
-import { Phone, MessageCircle, Mail, MapPin, Heart, Share2, Eye } from 'lucide-react'
+import { Phone, MessageCircle, Mail, MapPin, Clock, Share2, Info, ExternalLink } from 'lucide-react'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   const socialLinks = [
-    { icon: Heart, href: '#', label: 'Síguenos', colorClass: 'text-red-400' },
-    { icon: Share2, href: '#', label: 'Compartir', colorClass: 'text-blue-400' },
-    { icon: Eye, href: '#', label: 'Visitar', colorClass: 'text-cyan-400' },
+    {
+      icon: Share2,
+      href: '#',
+      label: 'Compartir',
+      colorClass: 'text-blue-600',
+      bgHoverClass: 'hover:bg-blue-700'
+    },
+    {
+      icon: ExternalLink,
+      href: 'https://github.com/cesarluiscr/lacueva-club',
+      label: 'Repositorio',
+      colorClass: 'text-gray-400',
+      bgHoverClass: 'hover:bg-gray-700'
+    },
+    {
+      icon: Info,
+      href: '#',
+      label: 'Más Info',
+      colorClass: 'text-cyan-600',
+      bgHoverClass: 'hover:bg-cyan-700'
+    },
   ]
 
   return (
@@ -41,7 +59,7 @@ export default function Footer() {
             </p>
 
             {/* Social Media Icons */}
-            <div className="flex gap-3 mt-6">
+            <div className="flex gap-4 mt-6">
               {socialLinks.map((social) => {
                 const Icon = social.icon
                 return (
@@ -49,9 +67,11 @@ export default function Footer() {
                     key={social.label}
                     href={social.href}
                     title={social.label}
-                    className="text-gray-400 transition-colors p-2 rounded-lg hover:bg-gray-800"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`p-3 rounded-lg bg-gray-800 transition-colors ${social.bgHoverClass}`}
                   >
-                    <Icon size={20} className={social.colorClass} />
+                    <Icon size={24} className={social.colorClass} />
                   </a>
                 )
               })}
