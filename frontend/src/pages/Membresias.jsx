@@ -68,12 +68,14 @@ export default function Membresias() {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {planes.map((plan) => (
+            {planes.map((plan, idx) => (
               <div
                 key={plan.id}
                 className={`card overflow-hidden transform transition-all ${
                   plan.recomendado ? 'ring-2 ring-green-400 scale-105 shadow-xl' : ''
                 }`}
+                data-aos="flip-left"
+                data-aos-delay={idx * 150}
               >
                 {plan.recomendado && (
                   <div className="bg-green-500 text-white py-2 text-center text-sm font-bold">
@@ -130,7 +132,7 @@ export default function Membresias() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold mb-8 text-center">Opción para Visitantes</h2>
-          <div className="card p-8">
+          <div className="card p-8" data-aos="zoom-in">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
@@ -200,7 +202,7 @@ export default function Membresias() {
                 a: 'Sí, contáctanos para consultar sobre descuentos especiales para grupos de 10+ personas.'
               }
             ].map((faq, idx) => (
-              <details key={idx} className="group border border-gray-200 rounded-lg">
+              <details key={idx} className="group border border-gray-200 rounded-lg" data-aos="fade-up" data-aos-delay={idx * 100}>
                 <summary className="flex cursor-pointer items-center justify-between p-4 font-bold text-gray-900 hover:bg-gray-50">
                   {faq.q}
                   <span className="transition group-open:rotate-180">▼</span>

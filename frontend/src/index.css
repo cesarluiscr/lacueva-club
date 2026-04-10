@@ -65,20 +65,45 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Buttons */
 .btn-primary {
-  @apply bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-colors dark:bg-blue-700 dark:hover:bg-blue-600;
+  @apply bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300 ease-in-out dark:bg-blue-700 dark:hover:bg-blue-600;
+  box-shadow: 0 4px 6px rgba(0, 102, 204, 0.1);
+  transform: translateY(0);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 8px 12px rgba(0, 102, 204, 0.3);
+  transform: translateY(-2px);
 }
 
 .btn-secondary {
-  @apply bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg transition-colors dark:bg-green-700 dark:hover:bg-green-600;
+  @apply bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300 ease-in-out dark:bg-green-700 dark:hover:bg-green-600;
+  box-shadow: 0 4px 6px rgba(0, 170, 102, 0.1);
+  transform: translateY(0);
+}
+
+.btn-secondary:hover {
+  box-shadow: 0 8px 12px rgba(0, 170, 102, 0.3);
+  transform: translateY(-2px);
 }
 
 .btn-ghost {
-  @apply border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-bold py-2 px-4 rounded-lg transition-colors dark:border-cyan-400 dark:text-cyan-400 dark:hover:bg-gray-800;
+  @apply border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-bold py-2 px-4 rounded-lg transition-all duration-300 ease-in-out dark:border-cyan-400 dark:text-cyan-400 dark:hover:bg-gray-800;
+  transform: translateY(0);
+}
+
+.btn-ghost:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.15);
 }
 
 /* Cards */
 .card {
-  @apply bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow dark:bg-gray-800 dark:shadow-gray-900;
+  @apply bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 ease-in-out dark:bg-gray-800 dark:shadow-gray-900;
+  transform: translateY(0) scale(1);
+}
+
+.card:hover {
+  transform: translateY(-4px) scale(1.02);
 }
 
 /* Gradients */
@@ -108,6 +133,15 @@ h1, h2, h3, h4, h5, h6 {
   pointer-events: none;
 }
 
+/* Global Links */
+a {
+  transition: all 0.3s ease-in-out;
+}
+
+a:not(.btn-primary):not(.btn-secondary):not(.btn-ghost) {
+  color: inherit;
+}
+
 /* Animations */
 @keyframes fadeIn {
   from {
@@ -129,12 +163,72 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideRight {
+  from {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 .animate-fade-in {
   animation: fadeIn 0.5s ease-in-out;
 }
 
 .animate-slide-up {
   animation: slideUp 0.6s ease-out;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.6s ease-out;
+}
+
+.animate-slide-left {
+  animation: slideLeft 0.6s ease-out;
+}
+
+.animate-slide-right {
+  animation: slideRight 0.6s ease-out;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.6s ease-out;
 }
 
 /* Scrollbar */

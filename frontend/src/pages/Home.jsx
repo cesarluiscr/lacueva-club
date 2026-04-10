@@ -69,7 +69,7 @@ export default function Home() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Piscina Image */}
-          <div className="mb-16 rounded-lg overflow-hidden shadow-lg">
+          <div className="mb-16 rounded-lg overflow-hidden shadow-lg" data-aos="zoom-in">
             <img
               src="./images/piscina-olimpica.jpg"
               alt="Piscina Olímpica"
@@ -108,7 +108,12 @@ export default function Home() {
             ].map((feature, idx) => {
               const Icon = feature.icon
               return (
-                <div key={idx} className="card p-8 text-center hover:scale-105 transition-transform">
+                <div
+                  key={idx}
+                  className="card p-8 text-center hover:scale-105 transition-transform"
+                  data-aos="fade-up"
+                  data-aos-delay={idx * 100}
+                >
                   <Icon size={48} className="text-blue-600 mx-auto mb-4" />
                   <h3 className="text-2xl font-bold mb-2 text-gray-900">
                     {feature.title}
@@ -173,6 +178,8 @@ export default function Home() {
               <div
                 key={idx}
                 className={`card p-8 border-l-4 ${plan.color} ${plan.featured ? 'ring-2 ring-green-400 scale-105' : ''}`}
+                data-aos="flip-left"
+                data-aos-delay={idx * 150}
               >
                 <h3 className="text-2xl font-bold mb-2 text-gray-900">
                   {plan.name}
@@ -238,7 +245,7 @@ export default function Home() {
               { number: '10', label: 'Instalaciones' },
               { number: '24/7', label: 'Acceso Club' }
             ].map((stat, idx) => (
-              <div key={idx}>
+              <div key={idx} data-aos="count-up" data-aos-delay={idx * 100}>
                 <div className="text-4xl font-bold text-blue-600 mb-2">
                   {stat.number}
                 </div>

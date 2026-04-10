@@ -40,20 +40,25 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8 dark:text-gray-300">
-            <Link to="/" className="text-gray-700 hover:text-blue-600 transition">
+            <Link to="/" className="text-gray-700 hover:text-blue-600 transition-all duration-300 ease-in-out relative group">
               Inicio
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
             </Link>
-            <Link to="/instalaciones" className="text-gray-700 hover:text-blue-600 transition">
+            <Link to="/instalaciones" className="text-gray-700 hover:text-blue-600 transition-all duration-300 ease-in-out relative group">
               Instalaciones
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
             </Link>
-            <Link to="/membresias" className="text-gray-700 hover:text-blue-600 transition">
+            <Link to="/membresias" className="text-gray-700 hover:text-blue-600 transition-all duration-300 ease-in-out relative group">
               Membresías
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
             </Link>
-            <Link to="/reservas" className="text-gray-700 hover:text-blue-600 transition">
+            <Link to="/reservas" className="text-gray-700 hover:text-blue-600 transition-all duration-300 ease-in-out relative group">
               Reservas
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
             </Link>
-            <Link to="/socios" className="text-gray-700 hover:text-blue-600 transition">
+            <Link to="/socios" className="text-gray-700 hover:text-blue-600 transition-all duration-300 ease-in-out relative group">
               Portal Socios
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
             </Link>
             <Link to="/tienda" className="btn-primary">
               Tienda

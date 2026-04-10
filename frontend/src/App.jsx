@@ -1,4 +1,7 @@
+import { useEffect } from 'react'
 import { HashRouter as Router, Routes, Route } from 'react-router-dom'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 import { ThemeProvider } from './context/ThemeContext'
 import SEO from './components/SEO'
 import Navbar from './components/Navbar'
@@ -12,6 +15,15 @@ import Tienda from './pages/Tienda'
 import Contacto from './pages/Contacto'
 
 function App() {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: false,
+      mirror: true,
+      offset: 100
+    })
+  }, [])
   return (
     <ThemeProvider>
       <Router>

@@ -33,7 +33,7 @@ export default function Contacto() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Formulario */}
-            <div>
+            <div data-aos="fade-right">
               <h2 className="text-2xl font-bold mb-6 dark:text-white">Envíanos un Mensaje</h2>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
@@ -117,12 +117,12 @@ export default function Contacto() {
             </div>
 
             {/* Información de Contacto */}
-            <div>
+            <div data-aos="fade-left">
               <h2 className="text-2xl font-bold mb-6 dark:text-white">Información de Contacto</h2>
 
               <div className="space-y-4">
                 {/* Phone */}
-                <div className="flex gap-4 p-4 rounded-lg bg-blue-50 dark:bg-blue-900/30 hover:shadow-lg hover:scale-105 transition-all">
+                <div className="flex gap-4 p-4 rounded-lg bg-blue-50 dark:bg-blue-900/30 hover:shadow-lg hover:scale-105 transition-all" data-aos="zoom-in" data-aos-delay="0">
                   <div className="p-3 rounded-lg bg-gradient-to-br from-blue-600 to-blue-700 text-white shadow-lg">
                     <Phone size={28} strokeWidth={2.5} />
                   </div>
@@ -133,7 +133,7 @@ export default function Contacto() {
                 </div>
 
                 {/* WhatsApp */}
-                <div className="flex gap-4 p-4 rounded-lg bg-green-50 dark:bg-green-900/30 hover:shadow-lg hover:scale-105 transition-all">
+                <div className="flex gap-4 p-4 rounded-lg bg-green-50 dark:bg-green-900/30 hover:shadow-lg hover:scale-105 transition-all" data-aos="zoom-in" data-aos-delay="100">
                   <div className="p-3 rounded-lg bg-gradient-to-br from-green-500 to-green-600 text-white shadow-lg">
                     <MessageCircle size={28} strokeWidth={2.5} />
                   </div>
@@ -149,7 +149,7 @@ export default function Contacto() {
                 </div>
 
                 {/* Email */}
-                <div className="flex gap-4 p-4 rounded-lg bg-red-50 dark:bg-red-900/30 hover:shadow-lg hover:scale-105 transition-all">
+                <div className="flex gap-4 p-4 rounded-lg bg-red-50 dark:bg-red-900/30 hover:shadow-lg hover:scale-105 transition-all" data-aos="zoom-in" data-aos-delay="200">
                   <div className="p-3 rounded-lg bg-gradient-to-br from-red-600 to-red-700 text-white shadow-lg">
                     <Mail size={28} strokeWidth={2.5} />
                   </div>
@@ -165,7 +165,7 @@ export default function Contacto() {
                 </div>
 
                 {/* Location */}
-                <div className="flex gap-4 p-4 rounded-lg bg-purple-50 dark:bg-purple-900/30 hover:shadow-lg hover:scale-105 transition-all">
+                <div className="flex gap-4 p-4 rounded-lg bg-purple-50 dark:bg-purple-900/30 hover:shadow-lg hover:scale-105 transition-all" data-aos="zoom-in" data-aos-delay="300">
                   <div className="p-3 rounded-lg bg-gradient-to-br from-purple-600 to-purple-700 text-white shadow-lg">
                     <MapPin size={28} strokeWidth={2.5} />
                   </div>
@@ -178,7 +178,7 @@ export default function Contacto() {
                 </div>
 
                 {/* Hours */}
-                <div className="flex gap-4 p-4 rounded-lg bg-amber-50 dark:bg-amber-900/30 hover:shadow-lg hover:scale-105 transition-all">
+                <div className="flex gap-4 p-4 rounded-lg bg-amber-50 dark:bg-amber-900/30 hover:shadow-lg hover:scale-105 transition-all" data-aos="zoom-in" data-aos-delay="400">
                   <div className="p-3 rounded-lg bg-gradient-to-br from-amber-500 to-amber-600 text-white shadow-lg">
                     <Clock size={28} strokeWidth={2.5} />
                   </div>
@@ -245,7 +245,7 @@ export default function Contacto() {
                 a: 'Sí, contamos con amplio estacionamiento gratuito para socios y visitantes.'
               }
             ].map((faq, idx) => (
-              <details key={idx} className="group border border-gray-200 rounded-lg">
+              <details key={idx} className="group border border-gray-200 rounded-lg" data-aos="fade-up" data-aos-delay={idx * 100}>
                 <summary className="flex cursor-pointer items-center justify-between p-4 font-bold text-gray-900 hover:bg-gray-50">
                   {faq.q}
                   <span className="transition group-open:rotate-180">▼</span>
