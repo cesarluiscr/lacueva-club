@@ -33,9 +33,14 @@ export default function Home() {
                 loading="lazy"
                 onError={(e) => e.target.style.display = 'none'}
               />
-              <h1 className="text-5xl md:text-6xl font-bold text-white">
-                Club Campestre<br/>La Cueva
-              </h1>
+              <div>
+                <h2 className="text-lg md:text-xl font-bold text-blue-100 tracking-widest mb-2">
+                  CLUB CAMPESTRE
+                </h2>
+                <h1 className="text-6xl md:text-7xl font-bold text-white" style={{ fontFamily: "'Great Vibes', cursive", letterSpacing: '3px', textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}>
+                  La Cueva
+                </h1>
+              </div>
             </div>
             <p className="text-xl text-blue-100 mb-8 animate-slide-up">
               Vive una experiencia única con nuestras instalaciones de clase mundial en Alajuela.
