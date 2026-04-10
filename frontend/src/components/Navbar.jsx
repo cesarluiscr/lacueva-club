@@ -33,8 +33,8 @@ export default function Navbar() {
               </g>
             </svg>
             <div className="hidden sm:flex flex-col items-start">
-              <span className="text-xs font-bold text-blue-600 tracking-widest">CLUB CAMPESTRE</span>
-              <span className="logo-text text-3xl leading-tight">La Cueva</span>
+              <span className="club-title text-blue-600">Club Campestre</span>
+              <span className="logo-text">La Cueva</span>
             </div>
           </Link>
 

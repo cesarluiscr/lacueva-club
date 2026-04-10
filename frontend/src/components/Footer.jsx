@@ -50,8 +50,8 @@ export default function Footer() {
                 </g>
               </svg>
               <div>
-                <div className="text-xs font-bold text-blue-400 tracking-widest">CLUB CAMPESTRE</div>
-                <div className="text-2xl leading-tight font-bold text-white" style={{ fontFamily: "'Great Vibes', cursive", letterSpacing: '2px' }}>La Cueva</div>
+                <div className="club-title text-blue-400">Club Campestre</div>
+                <div className="logo-text-footer">La Cueva</div>
               </div>
             </div>
             <p className="text-gray-400 text-sm">

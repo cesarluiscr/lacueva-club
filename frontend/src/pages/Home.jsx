@@ -34,10 +34,10 @@ export default function Home() {
                 onError={(e) => e.target.style.display = 'none'}
               />
               <div>
-                <h2 className="text-lg md:text-xl font-bold text-blue-100 tracking-widest mb-2">
-                  CLUB CAMPESTRE
+                <h2 className="club-title text-blue-100 mb-2">
+                  Club Campestre
                 </h2>
-                <h1 className="text-6xl md:text-7xl font-bold text-white" style={{ fontFamily: "'Great Vibes', cursive", letterSpacing: '3px', textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}>
+                <h1 className="logo-text-hero">
                   La Cueva
                 </h1>
               </div>
