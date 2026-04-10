@@ -19,22 +19,22 @@ export default function Contacto() {
   return (
     <div>
       {/* Header */}
-      <section className="bg-gradient-to-r from-blue-600 to-green-600 text-white py-12">
+      <section className="bg-gradient-to-r from-blue-600 to-green-600 dark:from-blue-700 dark:to-green-700 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold mb-4">Contacto</h1>
           <p className="text-lg text-blue-100">
-            Estamos aquí para ayudarte
+            Estamos aquí para ayudarte. ¡Comunícate con nosotros!
           </p>
         </div>
       </section>
 
       {/* Contenido */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-gray-950 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Formulario */}
             <div>
-              <h2 className="text-2xl font-bold mb-6">Envíanos un Mensaje</h2>
+              <h2 className="text-2xl font-bold mb-6 dark:text-white">Envíanos un Mensaje</h2>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label className="block text-sm font-bold text-gray-700 mb-2">
@@ -118,58 +118,73 @@ export default function Contacto() {
 
             {/* Información de Contacto */}
             <div>
-              <h2 className="text-2xl font-bold mb-6">Información de Contacto</h2>
+              <h2 className="text-2xl font-bold mb-6 dark:text-white">Información de Contacto</h2>
 
-              <div className="space-y-6">
-                <div className="flex gap-4">
-                  <Phone size={24} className="text-blue-600 flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-bold text-gray-900 mb-1">Teléfono</h3>
-                    <p className="text-gray-600">2433-7171</p>
+              <div className="space-y-4">
+                {/* Phone */}
+                <div className="flex gap-4 p-4 rounded-lg bg-blue-50 dark:bg-blue-900/30 hover:bg-blue-100 dark:hover:bg-blue-900/50 transition">
+                  <div className="p-3 rounded-lg bg-blue-600 text-white">
+                    <Phone size={24} />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-bold text-gray-900 dark:text-white mb-1">Teléfono</h3>
+                    <p className="text-gray-600 dark:text-gray-300">2433-7171</p>
                   </div>
                 </div>
 
-                <div className="flex gap-4">
-                  <MessageCircle size={24} className="text-blue-600 flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-bold text-gray-900 mb-1">WhatsApp</h3>
+                {/* WhatsApp */}
+                <div className="flex gap-4 p-4 rounded-lg bg-green-50 dark:bg-green-900/30 hover:bg-green-100 dark:hover:bg-green-900/50 transition">
+                  <div className="p-3 rounded-lg bg-green-600 text-white">
+                    <MessageCircle size={24} />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-bold text-gray-900 dark:text-white mb-1">WhatsApp</h3>
                     <a
                       href="https://wa.me/50672434203"
-                      className="text-blue-600 hover:underline"
+                      className="text-green-600 dark:text-green-400 hover:underline font-medium"
                     >
                       7243-4203
                     </a>
                   </div>
                 </div>
 
-                <div className="flex gap-4">
-                  <Mail size={24} className="text-blue-600 flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-bold text-gray-900 mb-1">Email</h3>
+                {/* Email */}
+                <div className="flex gap-4 p-4 rounded-lg bg-red-50 dark:bg-red-900/30 hover:bg-red-100 dark:hover:bg-red-900/50 transition">
+                  <div className="p-3 rounded-lg bg-red-600 text-white">
+                    <Mail size={24} />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-bold text-gray-900 dark:text-white mb-1">Email</h3>
                     <a
                       href="mailto:info@lacuevasa.com"
-                      className="text-blue-600 hover:underline"
+                      className="text-red-600 dark:text-red-400 hover:underline font-medium"
                     >
                       info@lacuevasa.com
                     </a>
                   </div>
                 </div>
 
-                <div className="flex gap-4">
-                  <MapPin size={24} className="text-blue-600 flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-bold text-gray-900 mb-1">Ubicación</h3>
-                    <p className="text-gray-600">
+                {/* Location */}
+                <div className="flex gap-4 p-4 rounded-lg bg-purple-50 dark:bg-purple-900/30 hover:bg-purple-100 dark:hover:bg-purple-900/50 transition">
+                  <div className="p-3 rounded-lg bg-purple-600 text-white">
+                    <MapPin size={24} />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-bold text-gray-900 dark:text-white mb-1">Ubicación</h3>
+                    <p className="text-gray-600 dark:text-gray-300">
                       Alajuela, Costa Rica
                     </p>
                   </div>
                 </div>
 
-                <div className="flex gap-4">
-                  <Clock size={24} className="text-blue-600 flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-bold text-gray-900 mb-1">Horarios de Atención</h3>
-                    <p className="text-gray-600 text-sm">
+                {/* Hours */}
+                <div className="flex gap-4 p-4 rounded-lg bg-yellow-50 dark:bg-yellow-900/30 hover:bg-yellow-100 dark:hover:bg-yellow-900/50 transition">
+                  <div className="p-3 rounded-lg bg-yellow-600 text-white">
+                    <Clock size={24} />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-bold text-gray-900 dark:text-white mb-1">Horarios de Atención</h3>
+                    <p className="text-gray-600 dark:text-gray-300 text-sm">
                       Lunes - Viernes: 8:00 AM - 5:00 PM<br />
                       Sábado: 9:00 AM - 1:00 PM<br />
                       Domingos: Cerrado
@@ -178,9 +193,9 @@ export default function Contacto() {
                 </div>
               </div>
 
-              <div className="mt-8 bg-blue-50 border border-blue-200 rounded-lg p-6">
-                <h3 className="font-bold text-blue-900 mb-2">⏱️ Tiempo de Respuesta</h3>
-                <p className="text-blue-800 text-sm">
+              <div className="mt-8 bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 rounded-lg p-6">
+                <h3 className="font-bold text-blue-900 dark:text-blue-300 mb-2">⏱️ Tiempo de Respuesta</h3>
+                <p className="text-blue-800 dark:text-blue-200 text-sm">
                   Respondemos mensajes dentro de 24 horas hábiles. Para consultas urgentes, llama directamente.
                 </p>
               </div>
@@ -190,7 +205,7 @@ export default function Contacto() {
       </section>
 
       {/* Mapa */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gray-50 dark:bg-gray-900 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold mb-8 text-center">Ubícanos en el Mapa</h2>
           <div className="rounded-lg overflow-hidden shadow-lg">

@@ -1,57 +1,96 @@
-import { Phone, MessageCircle, Mail, MapPin } from 'lucide-react'
+import { Phone, MessageCircle, Mail, MapPin, Heart, Share2, Eye } from 'lucide-react'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
+  const socialLinks = [
+    { icon: Heart, href: '#', label: 'Síguenos', colorClass: 'text-red-400' },
+    { icon: Share2, href: '#', label: 'Compartir', colorClass: 'text-blue-400' },
+    { icon: Eye, href: '#', label: 'Visitar', colorClass: 'text-cyan-400' },
+  ]
+
   return (
-    <footer className="bg-gray-900 text-white mt-12">
+    <footer className="bg-gray-900 dark:bg-gray-950 text-white mt-12 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 py-12">
           {/* About */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <img
-                src="./images/logo-lacueva.jpg"
-                alt="Club Campestre La Cueva"
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 200 240"
                 className="h-10 w-auto"
-                onError={(e) => e.target.style.display = 'none'}
-              />
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="tree">
+                  <ellipse cx="60" cy="40" rx="8" ry="12" fill="white" transform="rotate(-35 60 40)" opacity="0.9"/>
+                  <ellipse cx="100" cy="35" rx="8" ry="12" fill="white" transform="rotate(0 100 35)" opacity="0.95"/>
+                  <ellipse cx="140" cy="40" rx="8" ry="12" fill="white" transform="rotate(35 140 40)" opacity="0.9"/>
+                  <rect x="95" y="125" width="10" height="60" fill="white" rx="5"/>
+                </g>
+              </svg>
               <div>
                 <div className="text-xs font-bold text-blue-400">Club Campestre</div>
-                <div className="logo-text text-white text-lg leading-tight">La Cueva</div>
+                <div className="text-lg leading-tight font-bold text-cyan-400">La Cueva</div>
               </div>
             </div>
             <p className="text-gray-400 text-sm">
               55 años de excelencia en Alajuela, Costa Rica.
             </p>
+
+            {/* Social Media Icons */}
+            <div className="flex gap-3 mt-6">
+              {socialLinks.map((social) => {
+                const Icon = social.icon
+                return (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    title={social.label}
+                    className="text-gray-400 transition-colors p-2 rounded-lg hover:bg-gray-800"
+                  >
+                    <Icon size={20} className={social.colorClass} />
+                  </a>
+                )
+              })}
+            </div>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h3 className="font-montserrat font-bold text-lg mb-4">Contacto</h3>
-            <div className="space-y-3 text-sm text-gray-400">
-              <div className="flex items-center gap-2">
-                <Phone size={18} className="text-blue-400" />
-                <a href="tel:24337171" className="hover:text-white">
+            <h3 className="font-montserrat font-bold text-lg mb-4 text-white">Contacto</h3>
+            <div className="space-y-4 text-sm">
+              <div className="flex items-center gap-3 group cursor-pointer">
+                <div className="p-2 rounded-lg bg-blue-500/20 group-hover:bg-blue-500/30 transition">
+                  <Phone size={20} className="text-blue-400" />
+                </div>
+                <a href="tel:24337171" className="text-gray-300 group-hover:text-blue-400 transition">
                   2433-7171
                 </a>
               </div>
-              <div className="flex items-center gap-2">
-                <MessageCircle size={18} className="text-blue-400" />
-                <a href="https://wa.me/50672434203" className="hover:text-white">
+              <div className="flex items-center gap-3 group cursor-pointer">
+                <div className="p-2 rounded-lg bg-green-500/20 group-hover:bg-green-500/30 transition">
+                  <MessageCircle size={20} className="text-green-400" />
+                </div>
+                <a href="https://wa.me/50672434203" className="text-gray-300 group-hover:text-green-400 transition">
                   7243-4203 (WhatsApp)
                 </a>
               </div>
-              <div className="flex items-center gap-2">
-                <Mail size={18} className="text-blue-400" />
-                <a href="mailto:info@lacuevasa.com" className="hover:text-white">
+              <div className="flex items-center gap-3 group cursor-pointer">
+                <div className="p-2 rounded-lg bg-red-500/20 group-hover:bg-red-500/30 transition">
+                  <Mail size={20} className="text-red-400" />
+                </div>
+                <a href="mailto:info@lacuevasa.com" className="text-gray-300 group-hover:text-red-400 transition">
                   info@lacuevasa.com
                 </a>
               </div>
-              <div className="flex items-center gap-2">
-                <MapPin size={18} className="text-blue-400" />
-                <span>Alajuela, Costa Rica</span>
+              <div className="flex items-center gap-3">
+                <div className="p-2 rounded-lg bg-purple-500/20">
+                  <MapPin size={20} className="text-purple-400" />
+                </div>
+                <span className="text-gray-300">Alajuela, Costa Rica</span>
               </div>
             </div>
           </div>
