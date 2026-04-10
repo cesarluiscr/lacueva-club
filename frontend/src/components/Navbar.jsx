@@ -38,12 +38,14 @@ export default function Navbar() {
                 fontFamily: "'Pacifico', cursive",
                 fontSize: '2.8rem',
                 fontWeight: '400',
-                color: 'white',
-                textShadow: '2px 2px 4px rgba(0, 102, 204, 0.4)',
+                color: 'red',
+                textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
                 letterSpacing: '1px',
                 lineHeight: '1.2',
-                display: 'block'
-              }}>La Cueva</span>
+                display: 'block',
+                backgroundColor: 'yellow',
+                padding: '5px 10px'
+              }}>TEST La Cueva</span>
             </div>
           </Link>
 
