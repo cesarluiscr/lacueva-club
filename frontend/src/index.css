@@ -9,6 +9,9 @@
   --color-green: #00AA66;
   --color-yellow: #FFDD00;
   --color-dark: #333333;
+  --neon-gold: #FFD700;
+  --neon-red: #FF1744;
+  --neon-cyan: #00D9FF;
 }
 
 * {
@@ -25,6 +28,24 @@ body {
   font-family: 'Roboto', sans-serif;
   color: var(--color-dark);
   background-color: #f9f9f9;
+}
+
+/* Dark Mode Styles */
+.dark body,
+.dark {
+  background-color: #0F172A;
+  color: #e2e8f0;
+}
+
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: #f1f5f9;
+}
+
+.dark .logo-text {
+  background: linear-gradient(135deg, var(--neon-cyan) 0%, var(--neon-gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -44,20 +65,20 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Buttons */
 .btn-primary {
-  @apply bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-colors;
+  @apply bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-colors dark:bg-blue-700 dark:hover:bg-blue-600;
 }
 
 .btn-secondary {
-  @apply bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg transition-colors;
+  @apply bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg transition-colors dark:bg-green-700 dark:hover:bg-green-600;
 }
 
 .btn-ghost {
-  @apply border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-bold py-2 px-4 rounded-lg transition-colors;
+  @apply border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-bold py-2 px-4 rounded-lg transition-colors dark:border-cyan-400 dark:text-cyan-400 dark:hover:bg-gray-800;
 }
 
 /* Cards */
 .card {
-  @apply bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow;
+  @apply bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow dark:bg-gray-800 dark:shadow-gray-900;
 }
 
 /* Gradients */

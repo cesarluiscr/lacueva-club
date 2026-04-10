@@ -4,6 +4,7 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
@@ -11,6 +12,11 @@ export default {
         'lacueva-green': '#00AA66',
         'lacueva-yellow': '#FFDD00',
         'lacueva-dark': '#333333',
+        'neon-gold': '#FFD700',
+        'neon-red': '#FF1744',
+        'neon-cyan': '#00D9FF',
+        'dark-bg': '#0F172A',
+        'dark-card': '#1E293B',
       },
       fontFamily: {
         'montserrat': ['Montserrat', 'sans-serif'],
