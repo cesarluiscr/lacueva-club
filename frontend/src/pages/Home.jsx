@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative h-screen bg-gradient-to-br overflow-hidden" style={{backgroundImage: 'linear-gradient(135deg, #1e3a5f 0%, #0ea5e9 50%, #06b6d4 100%)'}}>
+      <section className="relative h-screen bg-gradient-to-br overflow-hidden" style={{backgroundImage: 'linear-gradient(135deg, #004E89 0%, #FF6B35 100%)'}}>
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-pattern"></div>
@@ -81,7 +81,7 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="py-24 bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-gray-950">
+      <section className="py-24 bg-white dark:bg-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Piscina Image */}
           <div className="mb-20 rounded-2xl overflow-hidden shadow-2xl" data-aos="zoom-in">
@@ -129,8 +129,12 @@ export default function Home() {
                   data-aos="fade-up"
                   data-aos-delay={idx * 100}
                 >
-                  <div className="inline-flex p-4 bg-gradient-to-br from-blue-100 to-cyan-100 dark:from-blue-900/40 dark:to-cyan-900/40 rounded-2xl mb-4 group-hover:shadow-lg transition-all duration-300">
-                    <Icon size={44} className="text-blue-600 dark:text-blue-400" />
+                  <div className={`inline-flex p-5 rounded-2xl mb-4 group-hover:scale-110 transition-all duration-300 ${
+                    idx === 0 ? 'bg-orange-100' : idx === 1 ? 'bg-blue-100' : 'bg-cyan-100'
+                  }`}>
+                    <Icon size={44} className={`${
+                      idx === 0 ? 'text-orange-600' : idx === 1 ? 'text-blue-600' : 'text-cyan-600'
+                    }`} />
                   </div>
                   <h3 className="text-xl font-bold mb-3 text-slate-900 dark:text-white">
                     {feature.title}
@@ -156,7 +160,7 @@ export default function Home() {
       </section>
 
       {/* Memberships Section */}
-      <section className="py-24 bg-white dark:bg-slate-900">
+      <section className="py-24 bg-gray-50 dark:bg-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -194,9 +198,10 @@ export default function Home() {
             ].map((plan, idx) => (
               <div
                 key={idx}
-                className={`card p-8 ${plan.featured ? 'ring-2 ring-cyan-400 scale-105 bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-950/30 dark:to-cyan-950/30' : ''}`}
+                className={`card p-8 ${plan.featured ? 'ring-4 ring-yellow-400 scale-105' : ''}`}
                 data-aos="flip-left"
                 data-aos-delay={idx * 150}
+                style={plan.featured ? {backgroundColor: '#FFF9E6'} : {}}
               >
                 <h3 className="text-2xl font-bold mb-2 text-gray-900">
                   {plan.name}
@@ -233,7 +238,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 text-white relative overflow-hidden" style={{background: 'linear-gradient(135deg, #1e3a5f 0%, #06b6d4 100%)'}}>
+      <section className="py-24 text-white relative overflow-hidden" style={{background: 'linear-gradient(135deg, #FF6B35 0%, #004E89 100%)'}}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-6">
             ¿Listo para disfrutar?
@@ -253,17 +258,17 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-24 bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-gray-950">
+      <section className="py-24 bg-white dark:bg-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             {[
-              { number: '55', label: 'Años de Historia' },
-              { number: '1000+', label: 'Socios Activos' },
-              { number: '10', label: 'Instalaciones' },
-              { number: '24/7', label: 'Acceso Club' }
+              { number: '55', label: 'Años de Historia', color: '#FF6B35' },
+              { number: '1000+', label: 'Socios Activos', color: '#F7B801' },
+              { number: '10', label: 'Instalaciones', color: '#1AC8ED' },
+              { number: '24/7', label: 'Acceso Club', color: '#004E89' }
             ].map((stat, idx) => (
-              <div key={idx} data-aos="count-up" data-aos-delay={idx * 100} className="p-8 rounded-xl bg-white dark:bg-slate-800 shadow-lg hover:shadow-xl transition-all duration-300">
-                <div className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-3">
+              <div key={idx} data-aos="count-up" data-aos-delay={idx * 100} className="p-8 rounded-xl bg-white dark:bg-slate-800 shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-400" style={{borderLeft: `5px solid ${stat.color}`}}>
+                <div className="text-5xl font-bold mb-3" style={{color: stat.color}}>
                   {stat.number}
                 </div>
                 <p className="text-slate-700 dark:text-slate-300 text-sm font-semibold">
