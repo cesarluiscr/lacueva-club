@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative h-screen bg-gradient-to-br from-red-700 to-blue-gray-600 overflow-hidden" style={{backgroundImage: 'linear-gradient(135deg, #c0392b 0%, #458a9b 100%)'}}>
+      <section className="relative h-screen bg-gradient-to-br overflow-hidden" style={{backgroundImage: 'linear-gradient(135deg, #1e3a5f 0%, #0ea5e9 50%, #06b6d4 100%)'}}>
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-pattern"></div>
@@ -81,14 +81,14 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-white dark:bg-gray-900">
+      <section className="py-24 bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-gray-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Piscina Image */}
-          <div className="mb-16 rounded-lg overflow-hidden shadow-lg" data-aos="zoom-in">
+          <div className="mb-20 rounded-2xl overflow-hidden shadow-2xl" data-aos="zoom-in">
             <img
               src="./images/piscina-olimpica.jpg"
               alt="Piscina Olímpica"
-              className="w-full h-96 object-cover"
+              className="w-full h-96 object-cover hover:scale-105 transition-transform duration-500"
               loading="lazy"
               onError={(e) => e.target.style.display = 'none'}
             />
@@ -125,17 +125,17 @@ export default function Home() {
               return (
                 <div
                   key={idx}
-                  className="card p-8 text-center"
+                  className="card p-8 text-center group"
                   data-aos="fade-up"
                   data-aos-delay={idx * 100}
                 >
-                  <div className="inline-flex p-3 bg-red-100 dark:bg-red-900/30 rounded-lg mb-4">
-                    <Icon size={40} className="text-red-700" />
+                  <div className="inline-flex p-4 bg-gradient-to-br from-blue-100 to-cyan-100 dark:from-blue-900/40 dark:to-cyan-900/40 rounded-2xl mb-4 group-hover:shadow-lg transition-all duration-300">
+                    <Icon size={44} className="text-blue-600 dark:text-blue-400" />
                   </div>
-                  <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white">
+                  <h3 className="text-xl font-bold mb-3 text-slate-900 dark:text-white">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                  <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
                     {feature.description}
                   </p>
                 </div>
@@ -156,7 +156,7 @@ export default function Home() {
       </section>
 
       {/* Memberships Section */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-900">
+      <section className="py-24 bg-white dark:bg-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -194,7 +194,7 @@ export default function Home() {
             ].map((plan, idx) => (
               <div
                 key={idx}
-                className={`card p-8 ${plan.featured ? 'ring-2 ring-red-500 scale-105 bg-red-50 dark:bg-red-950/20' : ''}`}
+                className={`card p-8 ${plan.featured ? 'ring-2 ring-cyan-400 scale-105 bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-950/30 dark:to-cyan-950/30' : ''}`}
                 data-aos="flip-left"
                 data-aos-delay={idx * 150}
               >
@@ -233,7 +233,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 text-white relative overflow-hidden" style={{background: 'linear-gradient(135deg, #c0392b 0%, #458a9b 100%)'}}>
+      <section className="py-24 text-white relative overflow-hidden" style={{background: 'linear-gradient(135deg, #1e3a5f 0%, #06b6d4 100%)'}}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-6">
             ¿Listo para disfrutar?
@@ -242,10 +242,10 @@ export default function Home() {
             Únete a nuestra comunidad de socios y disfruta de las mejores instalaciones.
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <Link to="/tienda" className="bg-white text-red-700 font-bold py-3 px-8 rounded-lg hover:bg-gray-100 transition-all duration-300 shadow-md">
+            <Link to="/tienda" className="bg-white text-blue-600 font-semibold py-3 px-8 rounded-lg hover:bg-slate-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
               Ir a la Tienda
             </Link>
-            <Link to="/contacto" className="border-2 border-white text-white font-bold py-3 px-8 rounded-lg hover:bg-white hover:text-red-700 transition-all duration-300">
+            <Link to="/contacto" className="border-2 border-white text-white font-semibold py-3 px-8 rounded-lg hover:bg-white hover:text-blue-600 transition-all duration-300">
               Contactar
             </Link>
           </div>
@@ -253,7 +253,7 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-white dark:bg-gray-900">
+      <section className="py-24 bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-gray-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             {[
@@ -262,11 +262,11 @@ export default function Home() {
               { number: '10', label: 'Instalaciones' },
               { number: '24/7', label: 'Acceso Club' }
             ].map((stat, idx) => (
-              <div key={idx} data-aos="count-up" data-aos-delay={idx * 100} className="p-8 rounded-lg text-center border border-gray-200 dark:border-gray-700">
-                <div className="text-4xl font-bold text-red-700 dark:text-red-500 mb-2">
+              <div key={idx} data-aos="count-up" data-aos-delay={idx * 100} className="p-8 rounded-xl bg-white dark:bg-slate-800 shadow-lg hover:shadow-xl transition-all duration-300">
+                <div className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-3">
                   {stat.number}
                 </div>
-                <p className="text-gray-700 dark:text-gray-400 text-sm font-medium">
+                <p className="text-slate-700 dark:text-slate-300 text-sm font-semibold">
                   {stat.label}
                 </p>
               </div>
