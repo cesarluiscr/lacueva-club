@@ -7,6 +7,9 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
+      borderRadius: {
+        '3xl': '1.5rem',
+      },
       colors: {
         'lacueva-blue': '#0066CC',
         'lacueva-green': '#00AA66',

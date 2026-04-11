@@ -7,13 +7,13 @@
 @tailwind utilities;
 
 :root {
-  --color-blue: #0066CC;
-  --color-green: #00AA66;
-  --color-yellow: #FFDD00;
-  --color-dark: #333333;
-  --neon-gold: #FFD700;
-  --neon-red: #FF1744;
-  --neon-cyan: #00D9FF;
+  --color-blue: #2563EB;
+  --color-green: #10B981;
+  --color-purple: #8B5CF6;
+  --color-dark: #0F172A;
+  --neon-gold: #FBBF24;
+  --neon-red: #EF4444;
+  --neon-cyan: #06B6D4;
 }
 
 * {
@@ -53,6 +53,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
+  letter-spacing: -0.5px;
 }
 
 .logo-text {
@@ -106,54 +107,62 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Buttons */
 .btn-primary {
-  @apply bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300 ease-in-out dark:bg-blue-700 dark:hover:bg-blue-600;
-  box-shadow: 0 4px 6px rgba(0, 102, 204, 0.1);
+  @apply bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 ease-in-out dark:from-blue-700 dark:to-blue-600;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
   transform: translateY(0);
+  font-size: 0.95rem;
 }
 
 .btn-primary:hover {
-  box-shadow: 0 8px 12px rgba(0, 102, 204, 0.3);
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
   transform: translateY(-2px);
 }
 
 .btn-secondary {
-  @apply bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300 ease-in-out dark:bg-green-700 dark:hover:bg-green-600;
-  box-shadow: 0 4px 6px rgba(0, 170, 102, 0.1);
+  @apply bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 ease-in-out dark:from-green-700 dark:to-green-600;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
   transform: translateY(0);
+  font-size: 0.95rem;
 }
 
 .btn-secondary:hover {
-  box-shadow: 0 8px 12px rgba(0, 170, 102, 0.3);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
   transform: translateY(-2px);
 }
 
 .btn-ghost {
-  @apply border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-bold py-2 px-4 rounded-lg transition-all duration-300 ease-in-out dark:border-cyan-400 dark:text-cyan-400 dark:hover:bg-gray-800;
+  @apply border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-bold py-3 px-6 rounded-xl transition-all duration-300 ease-in-out dark:border-cyan-400 dark:text-cyan-400 dark:hover:bg-gray-800;
   transform: translateY(0);
 }
 
 .btn-ghost:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.15);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
 }
 
 /* Cards */
 .card {
-  @apply bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 ease-in-out dark:bg-gray-800 dark:shadow-gray-900;
+  @apply bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 ease-in-out dark:bg-gray-800/50 dark:shadow-gray-900 border border-gray-100 dark:border-gray-700/50;
   transform: translateY(0) scale(1);
+  backdrop-filter: blur(10px);
 }
 
 .card:hover {
-  transform: translateY(-4px) scale(1.02);
+  transform: translateY(-6px) scale(1.02);
+  @apply border-blue-200 dark:border-blue-500/30;
 }
 
 /* Gradients */
 .gradient-blue-green {
-  background: linear-gradient(135deg, var(--color-blue) 0%, var(--color-green) 100%);
+  background: linear-gradient(135deg, #2563EB 0%, #10B981 50%, #06B6D4 100%);
 }
 
 .gradient-green-blue {
-  background: linear-gradient(135deg, var(--color-green) 0%, var(--color-blue) 100%);
+  background: linear-gradient(135deg, #10B981 0%, #2563EB 50%, #8B5CF6 100%);
+}
+
+.gradient-modern {
+  background: linear-gradient(135deg, #2563EB 0%, #8B5CF6 50%, #EC4899 100%);
 }
 
 /* Wave Pattern */

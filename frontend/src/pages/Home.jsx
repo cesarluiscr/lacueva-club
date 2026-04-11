@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative h-screen bg-gradient-to-br from-blue-600 to-blue-400 overflow-hidden">
+      <section className="relative h-screen bg-gradient-to-br from-blue-600 via-blue-500 to-cyan-400 overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-pattern"></div>
@@ -81,10 +81,10 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-white">
+      <section className="py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-950 dark:to-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Piscina Image */}
-          <div className="mb-16 rounded-lg overflow-hidden shadow-lg" data-aos="zoom-in">
+          <div className="mb-20 rounded-3xl overflow-hidden shadow-2xl" data-aos="zoom-in">
             <img
               src="./images/piscina-olimpica.jpg"
               alt="Piscina Olímpica"
@@ -129,11 +129,13 @@ export default function Home() {
                   data-aos="fade-up"
                   data-aos-delay={idx * 100}
                 >
-                  <Icon size={48} className="text-blue-600 mx-auto mb-4" />
-                  <h3 className="text-2xl font-bold mb-2 text-gray-900">
+                  <div className="inline-flex p-4 bg-gradient-to-br from-blue-100 to-blue-50 dark:from-blue-900/30 dark:to-blue-800/20 rounded-2xl mb-4">
+                    <Icon size={48} className="text-blue-600" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
                     {feature.description}
                   </p>
                 </div>
@@ -154,7 +156,7 @@ export default function Home() {
       </section>
 
       {/* Memberships Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -192,7 +194,7 @@ export default function Home() {
             ].map((plan, idx) => (
               <div
                 key={idx}
-                className={`card p-8 border-l-4 ${plan.color} ${plan.featured ? 'ring-2 ring-green-400 scale-105' : ''}`}
+                className={`card p-8 ${plan.featured ? 'ring-2 ring-green-400 scale-105 bg-gradient-to-br from-green-50 to-white dark:from-green-950/20 dark:to-gray-800' : 'bg-white dark:bg-gray-800/50'}`}
                 data-aos="flip-left"
                 data-aos-delay={idx * 150}
               >
@@ -231,7 +233,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 gradient-blue-green text-white">
+      <section className="py-24 gradient-modern text-white relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-6">
             ¿Listo para disfrutar?
@@ -240,10 +242,10 @@ export default function Home() {
             Únete a nuestra comunidad de socios y disfruta de las mejores instalaciones.
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <Link to="/tienda" className="bg-white text-blue-600 font-bold py-3 px-8 rounded-lg hover:bg-gray-100 transition">
+            <Link to="/tienda" className="bg-white text-blue-600 font-bold py-3 px-8 rounded-xl hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
               Ir a la Tienda
             </Link>
-            <Link to="/contacto" className="border-2 border-white text-white font-bold py-3 px-8 rounded-lg hover:bg-white hover:text-blue-600 transition">
+            <Link to="/contacto" className="border-2 border-white text-white font-bold py-3 px-8 rounded-xl hover:bg-white hover:text-blue-600 transition-all duration-300 backdrop-blur-sm">
               Contactar
             </Link>
           </div>
@@ -251,7 +253,7 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-white">
+      <section className="py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-950 dark:to-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             {[
@@ -260,11 +262,11 @@ export default function Home() {
               { number: '10', label: 'Instalaciones' },
               { number: '24/7', label: 'Acceso Club' }
             ].map((stat, idx) => (
-              <div key={idx} data-aos="count-up" data-aos-delay={idx * 100}>
-                <div className="text-4xl font-bold text-blue-600 mb-2">
+              <div key={idx} data-aos="count-up" data-aos-delay={idx * 100} className="p-8 rounded-2xl bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 border border-blue-100 dark:border-blue-800/30">
+                <div className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-2">
                   {stat.number}
                 </div>
-                <p className="text-gray-600">
+                <p className="text-gray-700 dark:text-gray-300 font-medium">
                   {stat.label}
                 </p>
               </div>
