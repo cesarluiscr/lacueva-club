@@ -12,28 +12,7 @@ export default function Navbar() {
   return (
     <nav className="bg-white dark:bg-gray-900 shadow-md sticky top-0 z-50 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-2" title="Club Campestre La Cueva">
-            <svg
-              width="48"
-              height="48"
-              viewBox="0 0 200 240"
-              className="h-12 w-auto"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-label="Club Campestre La Cueva Logo"
-            >
-              <g id="tree">
-                <ellipse cx="60" cy="40" rx="8" ry="12" fill="currentColor" transform="rotate(-35 60 40)" opacity="0.9"/>
-                <ellipse cx="50" cy="50" rx="8" ry="12" fill="currentColor" transform="rotate(-50 50 50)" opacity="0.85"/>
-                <ellipse cx="140" cy="40" rx="8" ry="12" fill="currentColor" transform="rotate(35 140 40)" opacity="0.9"/>
-                <ellipse cx="150" cy="50" rx="8" ry="12" fill="currentColor" transform="rotate(50 150 50)" opacity="0.85"/>
-                <ellipse cx="100" cy="35" rx="8" ry="12" fill="currentColor" transform="rotate(0 100 35)" opacity="0.95"/>
-                <rect x="95" y="125" width="10" height="60" fill="currentColor" rx="5"/>
-              </g>
-            </svg>
-          </Link>
-
+        <div className="flex justify-end items-center h-16">
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8 dark:text-gray-300">
             <Link to="/" className="text-gray-700 hover:text-blue-600 transition-all duration-300 ease-in-out relative group">
