@@ -45,7 +45,7 @@ export default function Navbar() {
                 display: 'block',
                 border: '3px solid yellow',
                 padding: '10px'
-              }}>La Cueva</span>
+              }}>TIPOGRAFÍA PACIFICO</span>
             </div>
           </Link>
 
