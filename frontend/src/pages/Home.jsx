@@ -28,7 +28,7 @@ export default function Home() {
             <div className="flex items-center gap-4 mb-6 animate-fade-in">
               <img
                 src="./images/logo-lacueva.jpg"
-                alt="Club Campestre La Cueva"
+                alt="Logo de Club Campestre La Cueva - 55 años de excelencia"
                 className="h-24 w-auto drop-shadow-lg"
                 loading="lazy"
                 onError={(e) => e.target.style.display = 'none'}
@@ -60,13 +60,15 @@ export default function Home() {
               <Link
                 to="/membresias"
                 className="btn-primary inline-flex items-center gap-2"
+                aria-label="Conoce nuestras membresías y planes"
               >
                 Conoce Nuestras Membresías
-                <ArrowRight size={20} />
+                <ArrowRight size={20} aria-hidden="true" />
               </Link>
               <Link
                 to="/reservas"
                 className="btn-ghost"
+                aria-label="Reservar una cancha o salón"
               >
                 Reservar Ahora
               </Link>
@@ -84,15 +86,16 @@ export default function Home() {
       <section className="py-24 bg-white dark:bg-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Piscina Image */}
-          <div className="mb-20 rounded-2xl overflow-hidden shadow-2xl" data-aos="zoom-in">
+          <figure className="mb-20 rounded-2xl overflow-hidden shadow-2xl" data-aos="zoom-in">
             <img
               src="./images/piscina-olimpica.jpg"
-              alt="Piscina Olímpica"
+              alt="Piscina Olímpica de 50 metros - Club Campestre La Cueva"
               className="w-full h-96 object-cover hover:scale-105 transition-transform duration-500"
               loading="lazy"
               onError={(e) => e.target.style.display = 'none'}
             />
-          </div>
+            <figcaption className="sr-only">Piscina Olímpica de 50 metros del Club Campestre La Cueva</figcaption>
+          </figure>
 
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -253,6 +256,81 @@ export default function Home() {
             <Link to="/contacto" className="border-2 border-white text-white font-semibold py-3 px-8 rounded-lg hover:bg-white hover:text-blue-600 transition-all duration-300">
               Contactar
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Blog/Noticias Section */}
+      <section className="py-24 bg-gray-50 dark:bg-slate-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              Noticias y Eventos
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300">
+              Mantente informado sobre lo que sucede en el club
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                date: 'Abril 2026',
+                title: 'Inauguración del nuevo gimnasio',
+                description: 'Equipos modernos y entrenadores certificados disponibles para todos nuestros socios.',
+                image: './images/piscina-olimpica.jpg'
+              },
+              {
+                date: 'Marzo 2026',
+                title: 'Torneo de Tenis 2026',
+                description: 'Participación de equipos de toda la región. Premiación para los ganadores.',
+                image: './images/piscina-olimpica.jpg'
+              },
+              {
+                date: 'Febrero 2026',
+                title: 'Clases de natación para niños',
+                description: 'Programa especial de verano con instructores certificados. Inscripciones abiertas.',
+                image: './images/piscina-olimpica.jpg'
+              }
+            ].map((news, idx) => (
+              <article
+                key={idx}
+                className="card overflow-hidden hover:shadow-2xl transition-all duration-300"
+                data-aos="fade-up"
+                data-aos-delay={idx * 100}
+              >
+                <img
+                  src={news.image}
+                  alt={`Noticia: ${news.title}`}
+                  className="w-full h-48 object-cover"
+                  loading="lazy"
+                  onError={(e) => e.target.style.display = 'none'}
+                />
+                <div className="p-6">
+                  <time className="text-sm text-orange-600 font-semibold">{news.date}</time>
+                  <h3 className="text-xl font-bold mt-2 mb-3 text-gray-900 dark:text-white">
+                    {news.title}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
+                    {news.description}
+                  </p>
+                  <a href="#" className="text-orange-600 font-semibold hover:text-orange-700 transition">
+                    Leer más →
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <a
+              href="#"
+              className="btn-secondary inline-flex items-center gap-2"
+              aria-label="Ver todas las noticias del club"
+            >
+              Ver Todas las Noticias
+              <ArrowRight size={20} />
+            </a>
           </div>
         </div>
       </section>

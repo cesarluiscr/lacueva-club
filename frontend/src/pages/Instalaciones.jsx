@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { MapPin, Clock, Users } from 'lucide-react'
+import { MapPin, Clock, Users, X } from 'lucide-react'
+import CalendarBooking from '../components/CalendarBooking'
 
 export default function Instalaciones() {
   const [selectedInstalacion, setSelectedInstalacion] = useState(null)
@@ -93,7 +94,7 @@ export default function Instalaciones() {
               >
                 <img
                   src={inst.imagen}
-                  alt={inst.nombre}
+                  alt={`${inst.nombre} - Club Campestre La Cueva`}
                   className="w-full h-48 object-cover"
                   loading="lazy"
                 />
@@ -123,37 +124,82 @@ export default function Instalaciones() {
 
       {/* Modal Detalle */}
       {selectedInstalacion && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg max-w-2xl w-full max-h-96 overflow-y-auto">
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby={`modal-title-${selectedInstalacion.id}`}
+        >
+          <div className="bg-white dark:bg-slate-900 rounded-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto">
             <div className="relative">
               <img
                 src={selectedInstalacion.imagen}
-                alt={selectedInstalacion.nombre}
+                alt={`Imagen de ${selectedInstalacion.nombre} - Club Campestre La Cueva`}
                 className="w-full h-64 object-cover"
                 loading="lazy"
               />
               <button
                 onClick={() => setSelectedInstalacion(null)}
-                className="absolute top-4 right-4 bg-white rounded-full p-2 hover:bg-gray-100"
+                aria-label="Cerrar detalles de la instalación"
+                className="absolute top-4 right-4 bg-white dark:bg-slate-700 rounded-full p-2 hover:bg-gray-100 dark:hover:bg-slate-600 transition focus:ring-2 focus:ring-orange-600 focus:outline-none"
               >
-                ✕
+                <X size={24} className="text-gray-900 dark:text-white" />
               </button>
             </div>
-            <div className="p-6">
-              <h2 className="text-2xl font-bold mb-4">
-                {selectedInstalacion.nombre}
-              </h2>
-              <p className="text-gray-600 mb-4">
-                {selectedInstalacion.descripcion}
-              </p>
-              <div className="space-y-2 mb-4">
-                <p><strong>Servicios:</strong> {selectedInstalacion.servicios.join(', ')}</p>
-                <p><strong>Horarios:</strong> {selectedInstalacion.horarios}</p>
-                <p><strong>Tarifa Visitante:</strong> ${selectedInstalacion.tarifa_visitante}</p>
+            <div className="p-6 space-y-6">
+              <div>
+                <h2 id={`modal-title-${selectedInstalacion.id}`} className="text-3xl font-bold mb-2 text-gray-900 dark:text-white">
+                  {selectedInstalacion.nombre}
+                </h2>
+                <p className="text-gray-600 dark:text-gray-300 text-lg mb-4">
+                  {selectedInstalacion.descripcion}
+                </p>
               </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                  <p className="text-sm font-semibold text-blue-900 dark:text-blue-300">Capacidad</p>
+                  <p className="text-2xl font-bold text-blue-600">{selectedInstalacion.capacidad}</p>
+                  <p className="text-xs text-blue-700 dark:text-blue-200">personas</p>
+                </div>
+                <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+                  <p className="text-sm font-semibold text-green-900 dark:text-green-300">Tarifa Visitante</p>
+                  <p className="text-2xl font-bold text-green-600">₡{selectedInstalacion.tarifa_visitante}</p>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <div>
+                  <p className="font-semibold text-gray-900 dark:text-white mb-2">
+                    <Clock size={18} className="inline mr-2" />
+                    Horarios
+                  </p>
+                  <p className="text-gray-700 dark:text-gray-300">{selectedInstalacion.horarios}</p>
+                </div>
+                <div>
+                  <p className="font-semibold text-gray-900 dark:text-white mb-2">
+                    <MapPin size={18} className="inline mr-2" />
+                    Servicios Disponibles
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedInstalacion.servicios.map((servicio, idx) => (
+                      <span key={idx} className="bg-orange-100 dark:bg-orange-900/20 text-orange-800 dark:text-orange-200 px-3 py-1 rounded-full text-sm">
+                        {servicio}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Calendario para agendar */}
+              <div className="border-t dark:border-slate-700 pt-6">
+                <CalendarBooking instalacion={selectedInstalacion} />
+              </div>
+
               <button
                 onClick={() => setSelectedInstalacion(null)}
-                className="btn-primary w-full"
+                className="btn-secondary w-full"
+                aria-label="Cerrar"
               >
                 Cerrar
               </button>

@@ -6,24 +6,24 @@ export default function Footer() {
   const socialLinks = [
     {
       icon: Share2,
-      href: '#',
-      label: 'Compartir',
+      href: 'https://facebook.com/lacuevaclub',
+      label: 'Facebook',
       colorClass: 'text-blue-600',
       bgHoverClass: 'hover:bg-blue-700'
     },
     {
-      icon: ExternalLink,
-      href: 'https://github.com/cesarluiscr/lacueva-club',
-      label: 'Repositorio',
-      colorClass: 'text-gray-400',
-      bgHoverClass: 'hover:bg-gray-700'
+      icon: Share2,
+      href: 'https://instagram.com/lacuevaclub',
+      label: 'Instagram',
+      colorClass: 'text-pink-600',
+      bgHoverClass: 'hover:bg-pink-700'
     },
     {
-      icon: Info,
-      href: '#',
-      label: 'Más Info',
-      colorClass: 'text-cyan-600',
-      bgHoverClass: 'hover:bg-cyan-700'
+      icon: ExternalLink,
+      href: 'https://github.com/cesarluiscr/lacueva-club',
+      label: 'Repositorio GitHub',
+      colorClass: 'text-gray-400',
+      bgHoverClass: 'hover:bg-gray-700'
     },
   ]
 
@@ -68,19 +68,20 @@ export default function Footer() {
             </p>
 
             {/* Social Media Icons */}
-            <div className="flex gap-4 mt-6">
+            <div className="flex gap-4 mt-6" role="navigation" aria-label="Redes sociales del club">
               {socialLinks.map((social) => {
                 const Icon = social.icon
                 return (
                   <a
                     key={social.label}
                     href={social.href}
-                    title={social.label}
+                    aria-label={`Visita nuestro ${social.label}`}
+                    title={`Club Campestre La Cueva en ${social.label}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`p-3 rounded-lg bg-gray-800 transition-all duration-300 ease-in-out transform hover:scale-110 hover:-translate-y-1 ${social.bgHoverClass}`}
+                    className={`p-3 rounded-lg bg-gray-800 transition-all duration-300 ease-in-out transform hover:scale-110 hover:-translate-y-1 focus:ring-2 focus:ring-orange-600 focus:outline-none ${social.bgHoverClass}`}
                   >
-                    <Icon size={24} className={social.colorClass} />
+                    <Icon size={24} className={social.colorClass} aria-hidden="true" />
                   </a>
                 )
               })}
