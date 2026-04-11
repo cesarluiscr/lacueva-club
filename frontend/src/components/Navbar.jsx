@@ -14,16 +14,16 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2" title="Club Campestre La Cueva">
             <svg
               width="48"
               height="48"
               viewBox="0 0 200 240"
               className="h-12 w-auto"
               xmlns="http://www.w3.org/2000/svg"
+              aria-label="Club Campestre La Cueva Logo"
             >
               <g id="tree">
-                {/* Árbol SVG embebido */}
                 <ellipse cx="60" cy="40" rx="8" ry="12" fill="currentColor" transform="rotate(-35 60 40)" opacity="0.9"/>
                 <ellipse cx="50" cy="50" rx="8" ry="12" fill="currentColor" transform="rotate(-50 50 50)" opacity="0.85"/>
                 <ellipse cx="140" cy="40" rx="8" ry="12" fill="currentColor" transform="rotate(35 140 40)" opacity="0.9"/>
@@ -32,22 +32,6 @@ export default function Navbar() {
                 <rect x="95" y="125" width="10" height="60" fill="currentColor" rx="5"/>
               </g>
             </svg>
-            <div className="hidden sm:flex flex-col items-start">
-              <span className="text-xs font-bold text-blue-600 tracking-widest" style={{letterSpacing: '2px'}}>CLUB CAMPESTRE</span>
-              <span style={{
-                fontFamily: "Georgia, 'Playfair Display', serif",
-                fontSize: '2.2rem',
-                fontWeight: '700',
-                fontStyle: 'italic',
-                background: 'linear-gradient(135deg, #0066CC 0%, #00AA66 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-                letterSpacing: '0.5px',
-                lineHeight: '1.2',
-                display: 'block'
-              }}>La Cueva</span>
-            </div>
           </Link>
 
           {/* Desktop Navigation */}
