@@ -38,12 +38,13 @@ export default function Home() {
                   CLUB CAMPESTRE
                 </h2>
                 <h1 style={{
-                  fontFamily: "'Pacifico', cursive",
-                  fontSize: '5rem',
-                  fontWeight: '400',
+                  fontFamily: "Georgia, 'Playfair Display', serif",
+                  fontSize: '4rem',
+                  fontWeight: '700',
+                  fontStyle: 'italic',
                   color: 'white',
                   textShadow: '2px 2px 6px rgba(0, 0, 0, 0.3)',
-                  letterSpacing: '2px',
+                  letterSpacing: '0.5px',
                   lineHeight: '1.2',
                   display: 'block'
                 }}>

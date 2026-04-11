@@ -52,11 +52,12 @@ export default function Footer() {
               <div>
                 <div className="text-xs font-bold text-blue-400 tracking-widest" style={{letterSpacing: '2px'}}>CLUB CAMPESTRE</div>
                 <div style={{
-                  fontFamily: "'Pacifico', cursive",
-                  fontSize: '1.875rem',
-                  fontWeight: '400',
+                  fontFamily: "Georgia, 'Playfair Display', serif",
+                  fontSize: '1.75rem',
+                  fontWeight: '700',
+                  fontStyle: 'italic',
                   color: 'white',
-                  letterSpacing: '1px',
+                  letterSpacing: '0.5px',
                   lineHeight: '1.2',
                   display: 'block'
                 }}>La Cueva</div>

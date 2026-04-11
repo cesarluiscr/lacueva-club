@@ -35,17 +35,18 @@ export default function Navbar() {
             <div className="hidden sm:flex flex-col items-start">
               <span className="text-xs font-bold text-blue-600 tracking-widest" style={{letterSpacing: '2px'}}>CLUB CAMPESTRE</span>
               <span style={{
-                fontFamily: "'Pacifico', cursive",
-                fontSize: '2.8rem',
-                fontWeight: '400',
-                color: '#FF0000',
-                textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
-                letterSpacing: '1px',
+                fontFamily: "Georgia, 'Playfair Display', serif",
+                fontSize: '2.2rem',
+                fontWeight: '700',
+                fontStyle: 'italic',
+                background: 'linear-gradient(135deg, #0066CC 0%, #00AA66 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                letterSpacing: '0.5px',
                 lineHeight: '1.2',
-                display: 'block',
-                border: '3px solid yellow',
-                padding: '10px'
-              }}>TIPOGRAFÍA PACIFICO</span>
+                display: 'block'
+              }}>La Cueva</span>
             </div>
           </Link>
 
