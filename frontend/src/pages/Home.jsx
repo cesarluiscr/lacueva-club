@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, Waves, Users, Trophy, Heart } from 'lucide-react'
+import logoElegante from '../assets/logo-lacueva-elegante.jpg'
 
 export default function Home() {
   return (
@@ -27,7 +28,7 @@ export default function Home() {
           <div className="max-w-2xl">
             <div className="flex items-center gap-6 mb-6 animate-fade-in">
               <img
-                src="/images/logo-lacueva-elegante.jpg"
+                src={logoElegante}
                 alt="Logo de Club Campestre La Cueva - 55 años de excelencia"
                 className="h-24 w-auto drop-shadow-lg"
                 loading="lazy"
