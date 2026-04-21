@@ -58,19 +58,12 @@ export default function Home() {
             </p>
             <div className="flex gap-4 animate-slide-up">
               <Link
-                to="/membresias"
-                className="btn-primary inline-flex items-center gap-2"
-                aria-label="Conoce nuestras membresías y planes"
-              >
-                Conoce Nuestras Membresías
-                <ArrowRight size={20} aria-hidden="true" />
-              </Link>
-              <Link
                 to="/reservas"
-                className="btn-ghost"
+                className="btn-primary inline-flex items-center gap-2"
                 aria-label="Reservar una cancha o salón"
               >
                 Reservar Ahora
+                <ArrowRight size={20} aria-hidden="true" />
               </Link>
             </div>
           </div>
@@ -174,84 +167,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Memberships Section */}
-      <section className="py-24 bg-gray-50 dark:bg-slate-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Planes de Membresía
-            </h2>
-            <p className="text-xl text-gray-600">
-              Encuentra el plan perfecto para ti y tu familia
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                name: 'Socio Básico',
-                price: '₡60',
-                period: '/mes',
-                color: 'border-blue-200',
-                features: ['Acceso a piscinas', 'Acceso a gimnasio', 'Descuento en restaurante']
-              },
-              {
-                name: 'Socio Activo',
-                price: '₡120',
-                period: '/mes',
-                color: 'border-green-200',
-                featured: true,
-                features: ['Acceso ilimitado', 'Prioridad en reservas', 'Acceso a eventos']
-              },
-              {
-                name: 'Familia',
-                price: '₡200',
-                period: '/mes',
-                color: 'border-teal-200',
-                features: ['Hasta 4 personas', 'Todos los beneficios', 'Clases para niños']
-              }
-            ].map((plan, idx) => (
-              <div
-                key={idx}
-                className={`card p-8 ${plan.featured ? 'ring-4 ring-green-400 scale-105' : ''}`}
-                data-aos="flip-left"
-                data-aos-delay={idx * 150}
-                style={plan.featured ? {backgroundColor: '#EFF9F5', border: '2px solid #1DB87B'} : {}}
-              >
-                <h3 className="text-2xl font-bold mb-2 text-gray-900">
-                  {plan.name}
-                </h3>
-                <div className="mb-6">
-                  <span className="text-4xl font-bold text-blue-600">{plan.price}</span>
-                  <span className="text-gray-600">{plan.period}</span>
-                </div>
-                <ul className="space-y-2 mb-8">
-                  {plan.features.map((feature, i) => (
-                    <li key={i} className="text-gray-600 flex items-center gap-2">
-                      <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                <button className="w-full btn-primary">
-                  Afiliarse Ahora
-                </button>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-12 text-center">
-            <Link
-              to="/membresias"
-              className="btn-secondary inline-flex items-center gap-2"
-            >
-              Ver Detalles Completos
-              <ArrowRight size={20} />
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="py-24 text-white relative overflow-hidden" style={{background: 'linear-gradient(135deg, #0061FF 0%, #06B6D4 50%, #1DB87B 100%)'}}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -262,10 +177,7 @@ export default function Home() {
             Únete a nuestra comunidad de socios y disfruta de las mejores instalaciones.
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <Link to="/membresias" className="bg-white text-blue-600 font-semibold py-3 px-8 rounded-lg hover:bg-slate-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-              Ver Membresías
-            </Link>
-            <Link to="/contacto" className="border-2 border-white text-white font-semibold py-3 px-8 rounded-lg hover:bg-white hover:text-blue-600 transition-all duration-300">
+            <Link to="/contacto" className="bg-white text-blue-600 font-semibold py-3 px-8 rounded-lg hover:bg-slate-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
               Contactar
             </Link>
           </div>

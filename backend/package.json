@@ -8,7 +8,7 @@
     "dev": "nodemon server.js",
     "test": "jest --detectOpenHandles"
   },
-  "keywords": ["club", "reservas", "membresías"],
+  "keywords": ["club", "reservas"],
   "author": "La Cueva",
   "license": "PRIVATE",
   "dependencies": {

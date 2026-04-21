@@ -5,11 +5,11 @@ export default function SEO() {
     // Meta tags dinámicos
     const metaTags = [
       { name: 'description', content: '55 años de excelencia en instalaciones deportivas. Piscinas, canchas, gimnasio, restaurante. Club Campestre La Cueva en Alajuela, Costa Rica.' },
-      { name: 'keywords', content: 'club campestre, piscina, tenis, fútbol, gimnasio, membresía, Alajuela, Costa Rica' },
+      { name: 'keywords', content: 'club campestre, piscina, tenis, fútbol, gimnasio, Alajuela, Costa Rica' },
       { name: 'author', content: 'Club Campestre La Cueva' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
       { property: 'og:title', content: 'Club Campestre La Cueva - 55 años de excelencia' },
-      { property: 'og:description', content: 'Disfruta de piscinas, canchas deportivas, gimnasio y más. Membresías desde ₡60/mes en Alajuela.' },
+      { property: 'og:description', content: 'Disfruta de piscinas, canchas deportivas, gimnasio y más en Alajuela.' },
       { property: 'og:url', content: 'https://cesarluiscr.github.io/lacueva-club/' },
       { property: 'og:image', content: 'https://cesarluiscr.github.io/lacueva-club/images/piscina-olimpica.jpg' },
       { property: 'og:type', content: 'business.business' },

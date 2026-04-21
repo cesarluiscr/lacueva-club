@@ -34,13 +34,11 @@ Se implementó un sistema completo de autenticación con JWT y un portal funcion
 #### 2. **sociosController.js**
 - ✅ Obtener perfil detallado
 - ✅ Actualizar datos personales
-- ✅ Ver historial de membresías
 - ✅ Ver estado de cuenta con movimientos
 - ✅ Descargar documentos
 - ✅ Cambiar contraseña
 
 **Funcionalidades:**
-- Membresía activa con invitados disponibles
 - Transacciones financieras
 - Documentos descargables
 - Cambio seguro de contraseña
@@ -76,7 +74,7 @@ backend/middleware/
 ```
 backend/controllers/
 ├── authController.js         - Registro, login, recuperación
-├── sociosController.js       - Perfil, membresías, estado
+├── sociosController.js       - Perfil, estado
 └── reservasController.js     - Reservas, disponibilidad
 ```
 
@@ -137,7 +135,6 @@ POST   /api/auth/recuperar-contrasena - Recuperación
 ```
 GET    /api/socios/perfil           - Ver perfil (protegida)
 PUT    /api/socios/perfil           - Editar perfil (protegida)
-GET    /api/socios/membresias       - Historial membresías (protegida)
 GET    /api/socios/reservas         - Mis reservas (protegida)
 GET    /api/socios/estado-cuenta    - Estado de cuenta (protegida)
 GET    /api/socios/documentos       - Descargar docs (protegida)
@@ -271,7 +268,6 @@ npm run dev
 - Procesamiento de pagos
 - Webhooks de Stripe
 - Facturación automática
-- Renovación de membresías
 
 ---
 

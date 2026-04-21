@@ -16,12 +16,6 @@ router.get('/perfil', verificarToken, sociosController.obtenerPerfil);
 router.put('/perfil', verificarToken, sociosController.actualizarPerfil);
 
 /**
- * GET /api/socios/membresias
- * Obtener historial de membresías
- */
-router.get('/membresias', verificarToken, sociosController.obtenerMembresias);
-
-/**
  * GET /api/socios/reservas
  * Obtener mis reservas
  */

@@ -166,14 +166,9 @@ npm test
 - `PUT /api/reservas/:id` - Actualizar
 - `DELETE /api/reservas/:id` - Cancelar
 
-### Membresías
-- `GET /api/membresias` - Listar planes
-- `GET /api/membresias/:id` - Detalles
-
 ### Socios
 - `GET /api/socios/perfil` - Mi perfil
 - `PUT /api/socios/perfil` - Actualizar perfil
-- `GET /api/socios/membresias` - Mis membresías
 - `GET /api/socios/documentos` - Descargar documentos
 - `GET /api/socios/estado-cuenta` - Estado de cuenta
 

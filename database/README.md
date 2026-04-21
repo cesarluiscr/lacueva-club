@@ -34,10 +34,7 @@ psql -U postgres -d lacueva_db -f migrations/002_create_instalaciones.sql
 # 3. Crear tabla reservas
 psql -U postgres -d lacueva_db -f migrations/003_create_reservas.sql
 
-# 4. Crear tablas membresías
-psql -U postgres -d lacueva_db -f migrations/004_create_membresias.sql
-
-# 5. Crear tabla pagos
+# 4. Crear tabla pagos
 psql -U postgres -d lacueva_db -f migrations/005_create_pagos.sql
 ```
 
@@ -61,7 +58,6 @@ psql -U postgres -d lacueva_db
 
 # Ver datos
 SELECT * FROM instalaciones;
-SELECT * FROM membresias;
 
 # Salir
 \q
@@ -84,13 +80,11 @@ DB_PASSWORD=tu_contraseña
 ```
 usuarios ──────────────┐
    ├─ (1:N) ──────→ reservas ──────→ instalaciones
-   ├─ (1:N) ──────→ pagos
-   └─ (M:N) ──→ socio_membresias ──→ membresias
+   └─ (1:N) ──────→ pagos
 
 Key Relationships:
 - Usuario → Muchas Reservas
 - Usuario → Muchos Pagos
-- Usuario ↔ Membresía (a través de SocioMembresia)
 - Instalación → Muchas Reservas
 ```
 

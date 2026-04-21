@@ -1,4 +1,4 @@
-const { Reserva, Instalacion, User, SocioMembresia } = require('../models');
+const { Reserva, Instalacion, User } = require('../models');
 const { Op } = require('sequelize');
 
 /**
@@ -43,17 +43,9 @@ exports.crearReserva = async (req, res) => {
       });
     }
 
-    // Verificar si es socio activo
-    const membresia = await SocioMembresia.findOne({
-      where: {
-        usuario_id: req.usuarioId,
-        estado: 'activa',
-        fecha_vencimiento: { [Op.gte]: new Date() }
-      }
-    });
-
-    const es_socio = !!membresia;
-    const costo = es_socio ? instalacion.tarifa_socio : instalacion.tarifa_visitante;
+    // Todos los usuarios autenticados son considerados socios
+    const es_socio = true;
+    const costo = instalacion.tarifa_socio;
 
     // Crear reserva
     const nuevaReserva = await Reserva.create({

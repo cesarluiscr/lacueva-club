@@ -14,15 +14,6 @@ router.get('/perfil', (req, res) => {
     apellido: 'Pérez',
     telefono: '2433-7171',
     fecha_afiliacion: '2023-01-15',
-    membresia_activa: {
-      id: 1,
-      nombre: 'Socio Activo',
-      fecha_inicio: '2026-01-01',
-      fecha_vencimiento: '2026-12-31',
-      estado: 'activa'
-    },
-    invitados_usados: 1,
-    invitados_disponibles: 1,
     estado_cuenta: 'al_corriente'
   };
 
@@ -45,35 +36,6 @@ router.put('/perfil', (req, res) => {
   res.json({
     success: true,
     message: 'Perfil actualizado exitosamente'
-  });
-});
-
-/**
- * GET /api/socios/membresias
- * Obtener historial de membresías del socio
- */
-router.get('/membresias', (req, res) => {
-  // TODO: Implementar autenticación
-  const membresias = [
-    {
-      id: 1,
-      nombre: 'Socio Básico',
-      fecha_inicio: '2023-01-15',
-      fecha_fin: '2025-12-31',
-      estado: 'vencida'
-    },
-    {
-      id: 2,
-      nombre: 'Socio Activo',
-      fecha_inicio: '2026-01-01',
-      fecha_fin: '2026-12-31',
-      estado: 'activa'
-    }
-  ];
-
-  res.json({
-    success: true,
-    data: membresias
   });
 });
 

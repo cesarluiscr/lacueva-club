@@ -1,9 +1,7 @@
 const User = require('./User');
 const Instalacion = require('./Instalacion');
 const Reserva = require('./Reserva');
-const Membresia = require('./Membresia');
 const Pago = require('./Pago');
-const SocioMembresia = require('./SocioMembresia');
 const sequelize = require('../config/database');
 
 // Relaciones
@@ -36,18 +34,6 @@ Pago.belongsTo(User, {
   foreignKey: 'usuario_id',
   as: 'usuario'
 });
-
-// User - SocioMembresia (1:N)
-User.hasMany(SocioMembresia, {
-  foreignKey: 'usuario_id',
-  as: 'membresias'
-});
-SocioMembresia.belongsTo(User, {
-  foreignKey: 'usuario_id',
-  as: 'usuario'
-});
-
-// Membresia - SocioMembresia (1:N)
 Membresia.hasMany(SocioMembresia, {
   foreignKey: 'membresia_id',
   as: 'socios'
@@ -64,19 +50,10 @@ User.belongsToMany(Membresia, {
   otherKey: 'membresia_id',
   as: 'membresias_activas'
 });
-Membresia.belongsToMany(User, {
-  through: SocioMembresia,
-  foreignKey: 'membresia_id',
-  otherKey: 'usuario_id',
-  as: 'usuarios'
-});
-
 module.exports = {
   User,
   Instalacion,
   Reserva,
-  Membresia,
   Pago,
-  SocioMembresia,
   sequelize
 };

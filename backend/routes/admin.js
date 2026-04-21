@@ -40,7 +40,6 @@ router.get('/socios', (req, res) => {
       nombre: 'Juan Pérez',
       email: 'juan@example.com',
       telefono: '2433-7171',
-      membresia: 'Socio Activo',
       estado: 'activo',
       fecha_afiliacion: '2023-01-15'
     },
@@ -49,7 +48,6 @@ router.get('/socios', (req, res) => {
       nombre: 'María García',
       email: 'maria@example.com',
       telefono: '7243-4203',
-      membresia: 'Socio Básico',
       estado: 'activo',
       fecha_afiliacion: '2024-06-20'
     }
@@ -118,7 +116,6 @@ router.get('/reportes/ingresos', (req, res) => {
 
   const reporte = {
     periodo: `${mes}/${anio}`,
-    ingresos_membresias: 5500,
     ingresos_reservas: 2800,
     ingresos_otros: 200,
     total: 8500,
@@ -129,55 +126,6 @@ router.get('/reportes/ingresos', (req, res) => {
   res.json({
     success: true,
     data: reporte
-  });
-});
-
-/**
- * POST /api/admin/membresias
- * Crear nueva membresía
- */
-router.post('/membresias', (req, res) => {
-  const { nombre, precio_anual, descripcion, beneficios } = req.body;
-
-  // TODO: Validar datos
-  // TODO: Guardar en BD
-
-  res.status(201).json({
-    success: true,
-    message: 'Membresía creada exitosamente',
-    membresia_id: 'MEM-' + Date.now()
-  });
-});
-
-/**
- * PUT /api/admin/membresias/:id
- * Actualizar membresía
- */
-router.put('/membresias/:id', (req, res) => {
-  const { id } = req.params;
-
-  // TODO: Validar datos
-  // TODO: Actualizar en BD
-
-  res.json({
-    success: true,
-    message: 'Membresía actualizada exitosamente'
-  });
-});
-
-/**
- * DELETE /api/admin/membresias/:id
- * Eliminar membresía
- */
-router.delete('/membresias/:id', (req, res) => {
-  const { id } = req.params;
-
-  // TODO: Validar que no tenga socios
-  // TODO: Eliminar de BD
-
-  res.json({
-    success: true,
-    message: 'Membresía eliminada exitosamente'
   });
 });
 

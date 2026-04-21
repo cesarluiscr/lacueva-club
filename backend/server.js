@@ -28,7 +28,6 @@ app.use(express.urlencoded({ limit: '10mb', extended: true }));
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/instalaciones', require('./routes/instalaciones'));
 app.use('/api/reservas', require('./routes/reservas'));
-app.use('/api/membresias', require('./routes/membresias'));
 app.use('/api/socios', require('./routes/socios'));
 app.use('/api/pagos', require('./routes/pagos'));
 app.use('/api/admin', require('./routes/admin'));

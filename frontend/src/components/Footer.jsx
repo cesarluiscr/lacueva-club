@@ -130,11 +130,6 @@ export default function Footer() {
             <h3 className="font-montserrat font-bold text-lg mb-4">Enlaces</h3>
             <ul className="space-y-2 text-sm text-gray-400">
               <li>
-                <a href="/membresias" className="hover:text-white">
-                  Membresías
-                </a>
-              </li>
-              <li>
                 <a href="/instalaciones" className="hover:text-white">
                   Instalaciones
                 </a>

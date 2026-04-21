@@ -35,7 +35,6 @@ exports.enviarBienvenida = async (usuario) => {
         <ul>
           <li>Realizar reservas en nuestras instalaciones</li>
           <li>Acceder a tu portal de socio</li>
-          <li>Ver tus membresías activas</li>
           <li>Descargar documentos importantes</li>
         </ul>
         <p style="margin-top: 30px; color: #888;">Club Campestre La Cueva<br>Alajuela, Costa Rica<br>info@lacuevasa.com</p>

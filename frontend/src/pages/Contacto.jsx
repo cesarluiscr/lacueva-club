@@ -233,7 +233,7 @@ export default function Contacto() {
                 a: 'Estamos abiertos de lunes a viernes 8:00 AM - 5:00 PM, y sábados 9:00 AM - 1:00 PM.'
               },
               {
-                q: '¿Cómo reporto un problema con mi membresía?',
+                q: '¿Cómo reporto un problema con mi reserva?',
                 a: 'Puedes llamar al 2433-7171 o enviar un email a info@lacuevasa.com con detalles del problema.'
               },
               {

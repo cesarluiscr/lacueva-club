@@ -1,4 +1,4 @@
-const { User, SocioMembresia, Membresia, Reserva, Pago } = require('../models');
+const { User, Reserva, Pago } = require('../models');
 const { Op } = require('sequelize');
 
 /**
@@ -8,24 +8,12 @@ const { Op } = require('sequelize');
 exports.obtenerPerfil = async (req, res) => {
   try {
     const usuario = await User.findByPk(req.usuarioId, {
-      attributes: { exclude: ['password'] },
-      include: [{
-        model: SocioMembresia,
-        as: 'membresias',
-        include: [{
-          model: Membresia,
-          as: 'membresia',
-          attributes: ['id', 'nombre', 'limite_invitados']
-        }]
-      }]
+      attributes: { exclude: ['password'] }
     });
 
     if (!usuario) {
       return res.status(404).json({ error: 'Usuario no encontrado' });
     }
-
-    // Obtener membresía activa
-    const membresia_activa = usuario.membresias.find(m => m.estado === 'activa');
 
     res.json({
       usuario: {
@@ -36,14 +24,7 @@ exports.obtenerPerfil = async (req, res) => {
         telefono: usuario.telefono,
         fecha_afiliacion: usuario.fecha_afiliacion,
         estado: usuario.estado
-      },
-      membresia_activa: membresia_activa ? {
-        nombre: membresia_activa.membresia.nombre,
-        fecha_inicio: membresia_activa.fecha_inicio,
-        fecha_vencimiento: membresia_activa.fecha_vencimiento,
-        estado: membresia_activa.estado,
-        invitados_disponibles: membresia_activa.membresia.limite_invitados - membresia_activa.invitados_usados
-      } : null
+      }
     });
   } catch (error) {
     console.error('Error obteniendo perfil:', error);
@@ -83,39 +64,6 @@ exports.actualizarPerfil = async (req, res) => {
   } catch (error) {
     console.error('Error actualizando perfil:', error);
     res.status(500).json({ error: 'Error al actualizar perfil' });
-  }
-};
-
-/**
- * GET /api/socios/membresias
- * Obtener historial de membresías
- */
-exports.obtenerMembresias = async (req, res) => {
-  try {
-    const membresias = await SocioMembresia.findAll({
-      where: { usuario_id: req.usuarioId },
-      include: [{
-        model: Membresia,
-        as: 'membresia',
-        attributes: ['nombre', 'precio_mensual', 'precio_anual']
-      }],
-      order: [['fecha_inicio', 'DESC']]
-    });
-
-    res.json({
-      membresias: membresias.map(m => ({
-        id: m.id,
-        nombre: m.membresia.nombre,
-        fecha_inicio: m.fecha_inicio,
-        fecha_vencimiento: m.fecha_vencimiento,
-        estado: m.estado,
-        precio_pagado: m.precio_pagado,
-        renovacion_automatica: m.renovacion_automatica
-      }))
-    });
-  } catch (error) {
-    console.error('Error obteniendo membresías:', error);
-    res.status(500).json({ error: 'Error al obtener membresías' });
   }
 };
 

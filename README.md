@@ -7,7 +7,7 @@ Sitio web profesional para el Club Campestre La Cueva (Alajuela, Costa Rica).
 - 🏊 Presentación de instalaciones
 - 📅 Sistema de reservas en línea
 - 👥 Portal de socios con acceso restringido
-- 🛒 Tienda en línea (membresías)
+- 🛒 Tienda en línea
 - 💳 Integración de pagos (Stripe/PayPal)
 - 📊 Panel administrativo
 - 📱 Diseño responsive (mobile-first)

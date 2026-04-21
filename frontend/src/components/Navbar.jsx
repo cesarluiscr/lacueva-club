@@ -23,10 +23,6 @@ export default function Navbar() {
               Instalaciones
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
             </Link>
-            <Link to="/membresias" className="text-gray-700 hover:text-blue-600 transition-all duration-300 ease-in-out relative group">
-              Membresías
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
-            </Link>
             <Link to="/reservas" className="text-gray-700 hover:text-blue-600 transition-all duration-300 ease-in-out relative group">
               Reservas
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
@@ -71,13 +67,6 @@ export default function Navbar() {
               onClick={() => setIsOpen(false)}
             >
               Instalaciones
-            </Link>
-            <Link
-              to="/membresias"
-              className="block px-4 py-2 text-gray-700 hover:bg-blue-50"
-              onClick={() => setIsOpen(false)}
-            >
-              Membresías
             </Link>
             <Link
               to="/reservas"

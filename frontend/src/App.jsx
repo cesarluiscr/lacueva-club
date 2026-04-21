@@ -8,7 +8,6 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
 import Instalaciones from './pages/Instalaciones'
-import Membresias from './pages/Membresias'
 import Reservas from './pages/Reservas'
 import SociosPortal from './pages/SociosPortal'
 import Contacto from './pages/Contacto'
@@ -33,7 +32,6 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/instalaciones" element={<Instalaciones />} />
-              <Route path="/membresias" element={<Membresias />} />
               <Route path="/reservas" element={<Reservas />} />
               <Route path="/socios" element={<SociosPortal />} />
               <Route path="/contacto" element={<Contacto />} />
