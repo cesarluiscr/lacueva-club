@@ -174,7 +174,7 @@ export default function Home() {
             ¿Listo para disfrutar?
           </h2>
           <p className="text-xl mb-8 text-blue-100">
-            Únete a nuestra comunidad de socios y disfruta de las mejores instalaciones.
+            Únete a nuestra comunidad y disfruta de las mejores instalaciones.
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
             <Link to="/contacto" className="bg-white text-blue-600 font-semibold py-3 px-8 rounded-lg hover:bg-slate-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
@@ -201,7 +201,7 @@ export default function Home() {
               {
                 date: 'Abril 2026',
                 title: 'Inauguración del nuevo gimnasio',
-                description: 'Equipos modernos y entrenadores certificados disponibles para todos nuestros socios.',
+                description: 'Equipos modernos y entrenadores certificados disponibles para todos nuestros visitantes.',
                 image: '/images/piscina-olimpica.jpg'
               },
               {
@@ -265,7 +265,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             {[
               { number: '55', label: 'Años de Historia', color: '#0061FF' },
-              { number: '1000+', label: 'Socios Activos', color: '#1DB87B' },
+              { number: '1000+', label: 'Visitantes Felices', color: '#1DB87B' },
               { number: '10', label: 'Instalaciones', color: '#06B6D4' },
               { number: '24/7', label: 'Acceso Club', color: '#003AAD' }
             ].map((stat, idx) => (

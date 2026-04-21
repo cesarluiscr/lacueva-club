@@ -242,7 +242,7 @@ export default function Contacto() {
               },
               {
                 q: '¿Hay estacionamiento disponible?',
-                a: 'Sí, contamos con amplio estacionamiento gratuito para socios y visitantes.'
+                a: 'Sí, contamos con amplio estacionamiento gratuito para nuestros visitantes.'
               }
             ].map((faq, idx) => (
               <details key={idx} className="group border border-gray-200 rounded-lg" data-aos="fade-up" data-aos-delay={idx * 100}>

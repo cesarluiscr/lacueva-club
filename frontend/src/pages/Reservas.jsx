@@ -111,27 +111,14 @@ export default function Reservas() {
             <ul className="text-sm text-blue-800 space-y-1">
               <li>• Las reservas se confirman dentro de 24 horas</li>
               <li>• Puedes cancelar con 48 horas de anticipación</li>
-              <li>• Inicia sesión para ver tus reservas previas</li>
+              <li>• Guarda tu comprobante de reserva</li>
               <li>• Se requiere depósito de seguridad</li>
             </ul>
           </div>
         </div>
       </section>
 
-      {/* Mis Reservas */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold mb-6">Mis Reservas</h2>
-          <div className="text-center py-12 bg-white rounded-lg">
-            <p className="text-gray-600 mb-4">
-              Inicia sesión para ver tus reservas confirmadas
-            </p>
-            <button className="btn-primary">
-              Iniciar Sesión
-            </button>
-          </div>
-        </div>
-      </section>
+
 
       {/* Politicas */}
       <section className="py-16 bg-white">
@@ -153,7 +140,7 @@ export default function Reservas() {
             <div>
               <h3 className="text-lg font-bold text-gray-900 mb-2">Límite de Reservas</h3>
               <p className="text-gray-600">
-                Los socios pueden reservar máximo 2 espacios simultáneamente. Los visitantes máximo 1.
+                Puedes reservar máximo 2 espacios simultáneamente.
               </p>
             </div>
             <div>

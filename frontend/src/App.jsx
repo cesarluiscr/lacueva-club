@@ -9,7 +9,6 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 import Instalaciones from './pages/Instalaciones'
 import Reservas from './pages/Reservas'
-import SociosPortal from './pages/SociosPortal'
 import Contacto from './pages/Contacto'
 
 function App() {
@@ -33,7 +32,6 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/instalaciones" element={<Instalaciones />} />
               <Route path="/reservas" element={<Reservas />} />
-              <Route path="/socios" element={<SociosPortal />} />
               <Route path="/contacto" element={<Contacto />} />
             </Routes>
           </main>

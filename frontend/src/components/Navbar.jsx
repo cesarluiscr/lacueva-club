@@ -27,10 +27,6 @@ export default function Navbar() {
               Reservas
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
             </Link>
-            <Link to="/socios" className="text-gray-700 hover:text-blue-600 transition-all duration-300 ease-in-out relative group">
-              Portal Socios
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
-            </Link>
           </div>
 
           {/* Theme Toggle & Mobile Menu */}
@@ -74,13 +70,6 @@ export default function Navbar() {
               onClick={() => setIsOpen(false)}
             >
               Reservas
-            </Link>
-            <Link
-              to="/socios"
-              className="block px-4 py-2 text-gray-700 hover:bg-blue-50"
-              onClick={() => setIsOpen(false)}
-            >
-              Portal Socios
             </Link>
           </div>
         )}
