@@ -35,20 +35,12 @@ export default function Footer() {
           {/* About */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 200 240"
-                className="h-10 w-auto"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g id="tree">
-                  <ellipse cx="60" cy="40" rx="8" ry="12" fill="white" transform="rotate(-35 60 40)" opacity="0.9"/>
-                  <ellipse cx="100" cy="35" rx="8" ry="12" fill="white" transform="rotate(0 100 35)" opacity="0.95"/>
-                  <ellipse cx="140" cy="40" rx="8" ry="12" fill="white" transform="rotate(35 140 40)" opacity="0.9"/>
-                  <rect x="95" y="125" width="10" height="60" fill="white" rx="5"/>
-                </g>
-              </svg>
+              <img
+                src="/images/logo-lacueva-elegante.png"
+                alt="Logo de Club Campestre La Cueva"
+                className="h-14 w-auto"
+                loading="lazy"
+              />
               <div>
                 <div className="text-xs font-bold text-blue-400 tracking-widest" style={{letterSpacing: '2px'}}>CLUB CAMPESTRE</div>
                 <div style={{

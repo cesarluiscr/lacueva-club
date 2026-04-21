@@ -25,11 +25,11 @@ export default function Home() {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
           <div className="max-w-2xl">
-            <div className="flex items-center gap-4 mb-6 animate-fade-in">
+            <div className="flex items-center gap-6 mb-6 animate-fade-in">
               <img
-                src="/images/logo-lacueva.jpg"
-                alt="Logo de Club Campestre La Cueva - 55 años de excelencia"
-                className="h-24 w-auto drop-shadow-lg"
+                src="/images/logo-lacueva-elegante.png"
+                alt="Logo de Club Campestre La Cueva - Árbol dorado elegante"
+                className="h-32 w-auto drop-shadow-lg"
                 loading="lazy"
                 onError={(e) => e.target.style.display = 'none'}
               />
