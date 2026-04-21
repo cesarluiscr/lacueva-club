@@ -36,7 +36,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <img
-                src="/images/logo-lacueva-elegante.png"
+                src="/images/logo-lacueva-elegante.jpg"
                 alt="Logo de Club Campestre La Cueva"
                 className="h-14 w-auto"
                 loading="lazy"

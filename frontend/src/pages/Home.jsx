@@ -27,7 +27,7 @@ export default function Home() {
           <div className="max-w-2xl">
             <div className="flex items-center gap-6 mb-6 animate-fade-in">
               <img
-                src="/images/logo-lacueva-elegante.png"
+                src="/images/logo-lacueva-elegante.jpg"
                 alt="Logo de Club Campestre La Cueva - Árbol dorado elegante"
                 className="h-32 w-auto drop-shadow-lg"
                 loading="lazy"
