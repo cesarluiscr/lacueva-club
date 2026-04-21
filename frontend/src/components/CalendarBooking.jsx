@@ -54,7 +54,7 @@ export default function CalendarBooking({ instalacion }) {
   return (
     <div className="card p-8 bg-white dark:bg-slate-800">
       <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white flex items-center gap-2">
-        <Calendar size={28} className="text-orange-600" />
+        <Calendar size={28} className="text-blue-600" />
         Agendar Visita en Google Calendar
       </h3>
 
@@ -72,7 +72,7 @@ export default function CalendarBooking({ instalacion }) {
             min={minDate}
             max={maxDate}
             required
-            className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:border-orange-600 focus:outline-none dark:bg-slate-700 dark:border-slate-600 dark:text-white"
+            className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:border-blue-600 focus:outline-none dark:bg-slate-700 dark:border-slate-600 dark:text-white"
             aria-label="Selecciona una fecha para tu visita"
           />
           <p className="text-xs text-gray-500 mt-1">Mínimo mañana, máximo 30 días</p>
@@ -88,7 +88,7 @@ export default function CalendarBooking({ instalacion }) {
             value={selectedTime}
             onChange={(e) => setSelectedTime(e.target.value)}
             required
-            className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:border-orange-600 focus:outline-none dark:bg-slate-700 dark:border-slate-600 dark:text-white"
+            className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:border-blue-600 focus:outline-none dark:bg-slate-700 dark:border-slate-600 dark:text-white"
             aria-label="Selecciona una hora"
           >
             <option value="">-- Selecciona una hora --</option>
@@ -112,7 +112,7 @@ export default function CalendarBooking({ instalacion }) {
             onChange={(e) => setGuestCount(Math.max(1, parseInt(e.target.value)))}
             min="1"
             max="20"
-            className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:border-orange-600 focus:outline-none dark:bg-slate-700 dark:border-slate-600 dark:text-white"
+            className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:border-blue-600 focus:outline-none dark:bg-slate-700 dark:border-slate-600 dark:text-white"
             aria-label="Número de personas que asistirán"
           />
         </div>

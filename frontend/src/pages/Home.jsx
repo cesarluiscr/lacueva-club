@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative h-screen bg-gradient-to-br overflow-hidden" style={{backgroundImage: 'linear-gradient(135deg, #004E89 0%, #FF6B35 100%)'}}>
+      <section className="relative h-screen bg-gradient-to-br overflow-hidden" style={{backgroundImage: 'linear-gradient(135deg, #003AAD 0%, #0061FF 55%, #1DB87B 100%)'}}>
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-pattern"></div>
@@ -27,7 +27,7 @@ export default function Home() {
           <div className="max-w-2xl">
             <div className="flex items-center gap-4 mb-6 animate-fade-in">
               <img
-                src="./images/logo-lacueva.jpg"
+                src="/images/logo-lacueva.jpg"
                 alt="Logo de Club Campestre La Cueva - 55 años de excelencia"
                 className="h-24 w-auto drop-shadow-lg"
                 loading="lazy"
@@ -88,7 +88,7 @@ export default function Home() {
           {/* Piscina Image */}
           <figure className="mb-20 rounded-2xl overflow-hidden shadow-2xl" data-aos="zoom-in">
             <img
-              src="./images/piscina-olimpica.jpg"
+              src="/images/piscina-olimpica.jpg"
               alt="Piscina Olímpica de 50 metros - Club Campestre La Cueva"
               className="w-full h-96 object-cover hover:scale-105 transition-transform duration-500"
               loading="lazy"
@@ -111,17 +111,20 @@ export default function Home() {
               {
                 icon: Waves,
                 title: 'Piscinas',
-                description: 'Piscina olímpica de 50 metros y áreas de recreación'
+                description: 'Piscina olímpica de 50 metros y áreas de recreación',
+                image: '/images/piscina.jpg'
               },
               {
                 icon: Trophy,
                 title: 'Canchas Deportivas',
-                description: 'Fútbol, tenis y otras disciplinas con equipamiento profesional'
+                description: 'Fútbol, tenis y otras disciplinas con equipamiento profesional',
+                image: '/images/canchas.jpg'
               },
               {
                 icon: Heart,
                 title: 'Gimnasio',
-                description: 'Equipos modernos y entrenadores certificados disponibles'
+                description: 'Equipos modernos y entrenadores certificados disponibles',
+                image: '/images/gimnasio.jpg'
               }
             ].map((feature, idx) => {
               const Icon = feature.icon
@@ -132,12 +135,21 @@ export default function Home() {
                   data-aos="fade-up"
                   data-aos-delay={idx * 100}
                 >
-                  <div className={`inline-flex p-5 rounded-2xl mb-4 group-hover:scale-110 transition-all duration-300 ${
-                    idx === 0 ? 'bg-orange-100' : idx === 1 ? 'bg-blue-100' : 'bg-cyan-100'
+                  <div className={`inline-flex p-5 rounded-2xl mb-4 group-hover:scale-110 transition-all duration-300 ${feature.image ? 'mb-4' : ''} ${
+                    idx === 0 ? 'bg-blue-100' : idx === 1 ? 'bg-emerald-100' : 'bg-cyan-100'
                   }`}>
-                    <Icon size={44} className={`${
-                      idx === 0 ? 'text-orange-600' : idx === 1 ? 'text-blue-600' : 'text-cyan-600'
-                    }`} />
+                    {feature.image ? (
+                      <img
+                        src={feature.image}
+                        alt={feature.title}
+                        className="w-16 h-16 object-cover rounded-xl"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <Icon size={44} className={`${
+                        idx === 0 ? 'text-blue-600' : idx === 1 ? 'text-emerald-600' : 'text-cyan-600'
+                      }`} />
+                    )}
                   </div>
                   <h3 className="text-xl font-bold mb-3 text-slate-900 dark:text-white">
                     {feature.title}
@@ -195,16 +207,16 @@ export default function Home() {
                 name: 'Familia',
                 price: '₡200',
                 period: '/mes',
-                color: 'border-yellow-200',
+                color: 'border-teal-200',
                 features: ['Hasta 4 personas', 'Todos los beneficios', 'Clases para niños']
               }
             ].map((plan, idx) => (
               <div
                 key={idx}
-                className={`card p-8 ${plan.featured ? 'ring-4 ring-yellow-400 scale-105' : ''}`}
+                className={`card p-8 ${plan.featured ? 'ring-4 ring-green-400 scale-105' : ''}`}
                 data-aos="flip-left"
                 data-aos-delay={idx * 150}
-                style={plan.featured ? {backgroundColor: '#FFF9E6'} : {}}
+                style={plan.featured ? {backgroundColor: '#EFF9F5', border: '2px solid #1DB87B'} : {}}
               >
                 <h3 className="text-2xl font-bold mb-2 text-gray-900">
                   {plan.name}
@@ -241,7 +253,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 text-white relative overflow-hidden" style={{background: 'linear-gradient(135deg, #FF6B35 0%, #004E89 100%)'}}>
+      <section className="py-24 text-white relative overflow-hidden" style={{background: 'linear-gradient(135deg, #0061FF 0%, #06B6D4 50%, #1DB87B 100%)'}}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-6">
             ¿Listo para disfrutar?
@@ -250,8 +262,8 @@ export default function Home() {
             Únete a nuestra comunidad de socios y disfruta de las mejores instalaciones.
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <Link to="/tienda" className="bg-white text-blue-600 font-semibold py-3 px-8 rounded-lg hover:bg-slate-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-              Ir a la Tienda
+            <Link to="/membresias" className="bg-white text-blue-600 font-semibold py-3 px-8 rounded-lg hover:bg-slate-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+              Ver Membresías
             </Link>
             <Link to="/contacto" className="border-2 border-white text-white font-semibold py-3 px-8 rounded-lg hover:bg-white hover:text-blue-600 transition-all duration-300">
               Contactar
@@ -278,19 +290,19 @@ export default function Home() {
                 date: 'Abril 2026',
                 title: 'Inauguración del nuevo gimnasio',
                 description: 'Equipos modernos y entrenadores certificados disponibles para todos nuestros socios.',
-                image: './images/piscina-olimpica.jpg'
+                image: '/images/piscina-olimpica.jpg'
               },
               {
                 date: 'Marzo 2026',
                 title: 'Torneo de Tenis 2026',
                 description: 'Participación de equipos de toda la región. Premiación para los ganadores.',
-                image: './images/piscina-olimpica.jpg'
+                image: '/images/piscina-olimpica.jpg'
               },
               {
                 date: 'Febrero 2026',
                 title: 'Clases de natación para niños',
                 description: 'Programa especial de verano con instructores certificados. Inscripciones abiertas.',
-                image: './images/piscina-olimpica.jpg'
+                image: '/images/piscina-olimpica.jpg'
               }
             ].map((news, idx) => (
               <article
@@ -307,14 +319,14 @@ export default function Home() {
                   onError={(e) => e.target.style.display = 'none'}
                 />
                 <div className="p-6">
-                  <time className="text-sm text-orange-600 font-semibold">{news.date}</time>
+                  <time className="text-sm text-blue-600 font-semibold">{news.date}</time>
                   <h3 className="text-xl font-bold mt-2 mb-3 text-gray-900 dark:text-white">
                     {news.title}
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
                     {news.description}
                   </p>
-                  <a href="#" className="text-orange-600 font-semibold hover:text-orange-700 transition">
+                  <a href="#" className="text-blue-600 font-semibold hover:text-green-600 transition">
                     Leer más →
                   </a>
                 </div>
@@ -340,10 +352,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             {[
-              { number: '55', label: 'Años de Historia', color: '#FF6B35' },
-              { number: '1000+', label: 'Socios Activos', color: '#F7B801' },
-              { number: '10', label: 'Instalaciones', color: '#1AC8ED' },
-              { number: '24/7', label: 'Acceso Club', color: '#004E89' }
+              { number: '55', label: 'Años de Historia', color: '#0061FF' },
+              { number: '1000+', label: 'Socios Activos', color: '#1DB87B' },
+              { number: '10', label: 'Instalaciones', color: '#06B6D4' },
+              { number: '24/7', label: 'Acceso Club', color: '#003AAD' }
             ].map((stat, idx) => (
               <div key={idx} data-aos="count-up" data-aos-delay={idx * 100} className="p-8 rounded-xl bg-white dark:bg-slate-800 shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-400" style={{borderLeft: `5px solid ${stat.color}`}}>
                 <div className="text-5xl font-bold mb-3" style={{color: stat.color}}>

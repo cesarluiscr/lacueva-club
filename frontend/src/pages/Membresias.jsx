@@ -112,7 +112,7 @@ export default function Membresias() {
 
                   {/* CTA */}
                   <Link
-                    to="/tienda"
+                    to="/contacto"
                     className={`block text-center font-bold py-3 rounded-lg transition-colors ${
                       plan.recomendado
                         ? 'btn-primary'
@@ -213,6 +213,24 @@ export default function Membresias() {
               </details>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Proforma */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold mb-8">Información Detallada</h2>
+          <p className="text-gray-600 mb-8">
+            Descarga nuestra proforma completa con todos los detalles de membresías y precios.
+          </p>
+          <a
+            href="/Proforma.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary inline-flex items-center gap-2"
+          >
+            Descargar Proforma (PDF)
+          </a>
         </div>
       </section>
     </div>

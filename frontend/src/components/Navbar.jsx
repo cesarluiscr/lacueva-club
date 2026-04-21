@@ -35,9 +35,6 @@ export default function Navbar() {
               Portal Socios
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
             </Link>
-            <Link to="/tienda" className="btn-primary">
-              Tienda
-            </Link>
           </div>
 
           {/* Theme Toggle & Mobile Menu */}
@@ -95,13 +92,6 @@ export default function Navbar() {
               onClick={() => setIsOpen(false)}
             >
               Portal Socios
-            </Link>
-            <Link
-              to="/tienda"
-              className="block px-4 py-2 text-blue-600 font-bold hover:bg-blue-50"
-              onClick={() => setIsOpen(false)}
-            >
-              Tienda
             </Link>
           </div>
         )}

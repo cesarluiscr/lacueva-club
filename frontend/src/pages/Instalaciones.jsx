@@ -141,7 +141,7 @@ export default function Instalaciones() {
               <button
                 onClick={() => setSelectedInstalacion(null)}
                 aria-label="Cerrar detalles de la instalación"
-                className="absolute top-4 right-4 bg-white dark:bg-slate-700 rounded-full p-2 hover:bg-gray-100 dark:hover:bg-slate-600 transition focus:ring-2 focus:ring-orange-600 focus:outline-none"
+                className="absolute top-4 right-4 bg-white dark:bg-slate-700 rounded-full p-2 hover:bg-gray-100 dark:hover:bg-slate-600 transition focus:ring-2 focus:ring-blue-600 focus:outline-none"
               >
                 <X size={24} className="text-gray-900 dark:text-white" />
               </button>
@@ -183,7 +183,7 @@ export default function Instalaciones() {
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {selectedInstalacion.servicios.map((servicio, idx) => (
-                      <span key={idx} className="bg-orange-100 dark:bg-orange-900/20 text-orange-800 dark:text-orange-200 px-3 py-1 rounded-full text-sm">
+                      <span key={idx} className="bg-blue-100 dark:bg-blue-900/20 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-sm">
                         {servicio}
                       </span>
                     ))}

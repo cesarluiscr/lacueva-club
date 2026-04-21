@@ -79,7 +79,7 @@ export default function Footer() {
                     title={`Club Campestre La Cueva en ${social.label}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`p-3 rounded-lg bg-gray-800 transition-all duration-300 ease-in-out transform hover:scale-110 hover:-translate-y-1 focus:ring-2 focus:ring-orange-600 focus:outline-none ${social.bgHoverClass}`}
+                    className={`p-3 rounded-lg bg-gray-800 transition-all duration-300 ease-in-out transform hover:scale-110 hover:-translate-y-1 focus:ring-2 focus:ring-green-500 focus:outline-none ${social.bgHoverClass}`}
                   >
                     <Icon size={24} className={social.colorClass} aria-hidden="true" />
                   </a>

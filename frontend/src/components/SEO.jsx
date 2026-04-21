@@ -18,7 +18,7 @@ export default function SEO() {
       { name: 'twitter:title', content: 'Club Campestre La Cueva' },
       { name: 'twitter:description', content: 'Instalaciones deportivas de clase mundial en Alajuela' },
       { name: 'twitter:image', content: 'https://cesarluiscr.github.io/lacueva-club/images/piscina-olimpica.jpg' },
-      { name: 'theme-color', content: '#FF6B35' },
+      { name: 'theme-color', content: '#0061FF' },
       { name: 'mobile-web-app-capable', content: 'yes' },
       { name: 'apple-mobile-web-app-capable', content: 'yes' },
       { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' }
