@@ -1,4 +1,5 @@
-const { Reserva, Instalacion, User } = require('../models');
+﻿const { Reserva, Instalacion } = require('../models');
+const { validationResult } = require('express-validator');
 const { Op } = require('sequelize');
 
 /**
@@ -7,15 +8,24 @@ const { Op } = require('sequelize');
  */
 exports.crearReserva = async (req, res) => {
   try {
-    const { instalacion_id, fecha, hora_inicio, hora_fin, numero_asistentes } = req.body;
-
-    // Validar instalación existe
-    const instalacion = await Instalacion.findByPk(instalacion_id);
-    if (!instalacion) {
-      return res.status(404).json({ error: 'Instalación no encontrada' });
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
     }
 
-    // Verificar disponibilidad
+    const { instalacion_id, fecha, hora_inicio, hora_fin, numero_asistentes } = req.body;
+
+    if (hora_inicio >= hora_fin) {
+      return res.status(400).json({
+        error: 'La hora de finalizacion debe ser posterior a la hora de inicio'
+      });
+    }
+
+    const instalacion = await Instalacion.findByPk(instalacion_id);
+    if (!instalacion) {
+      return res.status(404).json({ error: 'Instalacion no encontrada' });
+    }
+
     const reservaExistente = await Reserva.findOne({
       where: {
         instalacion_id,
@@ -32,22 +42,18 @@ exports.crearReserva = async (req, res) => {
 
     if (reservaExistente) {
       return res.status(400).json({
-        error: 'El horario seleccionado no está disponible'
+        error: 'El horario seleccionado no esta disponible'
       });
     }
 
-    // Validar capacidad
     if (numero_asistentes > instalacion.capacidad) {
       return res.status(400).json({
-        error: `La capacidad máxima es ${instalacion.capacidad} personas`
+        error: `La capacidad maxima es ${instalacion.capacidad} personas`
       });
     }
 
-    // Todos los usuarios autenticados son considerados socios
-    const es_socio = true;
     const costo = instalacion.tarifa_socio;
 
-    // Crear reserva
     const nuevaReserva = await Reserva.create({
       usuario_id: req.usuarioId,
       instalacion_id,
@@ -126,13 +132,11 @@ exports.obtenerDisponibilidad = async (req, res) => {
       return res.status(400).json({ error: 'Fecha requerida' });
     }
 
-    // Validar instalación
     const instalacion = await Instalacion.findByPk(instalacion_id);
     if (!instalacion) {
-      return res.status(404).json({ error: 'Instalación no encontrada' });
+      return res.status(404).json({ error: 'Instalacion no encontrada' });
     }
 
-    // Obtener reservas del día
     const reservasDelDia = await Reserva.findAll({
       where: {
         instalacion_id,
@@ -141,7 +145,6 @@ exports.obtenerDisponibilidad = async (req, res) => {
       }
     });
 
-    // Generar horarios disponibles
     const horariosOcupados = reservasDelDia.map(r => ({
       inicio: r.hora_inicio,
       fin: r.hora_fin
@@ -170,8 +173,13 @@ exports.obtenerDisponibilidad = async (req, res) => {
  */
 exports.actualizarReserva = async (req, res) => {
   try {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
     const { id } = req.params;
-    const { fecha, hora_inicio, hora_fin } = req.body;
+    const { fecha, hora_inicio, hora_fin, numero_asistentes } = req.body;
 
     const reserva = await Reserva.findOne({
       where: { id, usuario_id: req.usuarioId }
@@ -183,14 +191,70 @@ exports.actualizarReserva = async (req, res) => {
 
     if (reserva.estado !== 'confirmada') {
       return res.status(400).json({
-        error: 'No puedes actualizar una reserva confirmada'
+        error: 'Solo puedes actualizar reservas confirmadas'
       });
     }
 
-    await reserva.update({ fecha, hora_inicio, hora_fin });
+    const nuevaFecha = fecha || reserva.fecha;
+    const nuevaHoraInicio = hora_inicio || reserva.hora_inicio;
+    const nuevaHoraFin = hora_fin || reserva.hora_fin;
+    const nuevosAsistentes = numero_asistentes || reserva.numero_asistentes;
+
+    if (nuevaHoraInicio >= nuevaHoraFin) {
+      return res.status(400).json({
+        error: 'La hora de finalizacion debe ser posterior a la hora de inicio'
+      });
+    }
+
+    const instalacion = await Instalacion.findByPk(reserva.instalacion_id);
+    if (!instalacion) {
+      return res.status(404).json({ error: 'Instalacion no encontrada' });
+    }
+
+    if (nuevosAsistentes > instalacion.capacidad) {
+      return res.status(400).json({
+        error: `La capacidad maxima es ${instalacion.capacidad} personas`
+      });
+    }
+
+    const reservaExistente = await Reserva.findOne({
+      where: {
+        id: { [Op.ne]: reserva.id },
+        instalacion_id: reserva.instalacion_id,
+        fecha: nuevaFecha,
+        hora_inicio: {
+          [Op.lt]: nuevaHoraFin
+        },
+        hora_fin: {
+          [Op.gt]: nuevaHoraInicio
+        },
+        estado: { [Op.ne]: 'cancelada' }
+      }
+    });
+
+    if (reservaExistente) {
+      return res.status(400).json({
+        error: 'El horario seleccionado no esta disponible'
+      });
+    }
+
+    await reserva.update({
+      fecha: nuevaFecha,
+      hora_inicio: nuevaHoraInicio,
+      hora_fin: nuevaHoraFin,
+      numero_asistentes: nuevosAsistentes
+    });
 
     res.json({
-      message: 'Reserva actualizada exitosamente'
+      message: 'Reserva actualizada exitosamente',
+      reserva: {
+        id: reserva.id,
+        fecha: reserva.fecha,
+        hora_inicio: reserva.hora_inicio,
+        hora_fin: reserva.hora_fin,
+        numero_asistentes: reserva.numero_asistentes,
+        estado: reserva.estado
+      }
     });
   } catch (error) {
     console.error('Error actualizando reserva:', error);
@@ -221,7 +285,6 @@ exports.cancelarReserva = async (req, res) => {
       });
     }
 
-    // Cancelar
     await reserva.update({
       estado: 'cancelada',
       cancelada_en: new Date(),
@@ -237,22 +300,17 @@ exports.cancelarReserva = async (req, res) => {
   }
 };
 
-/**
- * Función auxiliar para generar horarios disponibles
- */
 function generarHorarios(apertura, cierre, ocupados) {
   const horarios = [];
   const [aH, aM] = apertura.split(':').map(Number);
-  const [cH, cM] = cierre.split(':').map(Number);
+  const [cH] = cierre.split(':').map(Number);
 
   let hora = aH;
   while (hora < cH) {
     const inicio = `${String(hora).padStart(2, '0')}:${String(aM).padStart(2, '0')}`;
     const fin = `${String(hora + 1).padStart(2, '0')}:${String(aM).padStart(2, '0')}`;
 
-    const estaOcupado = ocupados.some(o =>
-      inicio < o.fin && fin > o.inicio
-    );
+    const estaOcupado = ocupados.some(o => inicio < o.fin && fin > o.inicio);
 
     horarios.push({
       hora: inicio,

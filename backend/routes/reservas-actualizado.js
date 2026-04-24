@@ -1,4 +1,4 @@
-const express = require('express');
+﻿const express = require('express');
 const router = express.Router();
 const { body } = require('express-validator');
 const { verificarToken } = require('../middleware/auth');
@@ -15,11 +15,11 @@ router.get('/', verificarToken, reservasController.obtenerMisReservas);
  * Crear nueva reserva
  */
 router.post('/', verificarToken, [
-  body('instalacion_id').notEmpty().withMessage('Instalación requerida'),
-  body('fecha').isISO8601().withMessage('Fecha inválida'),
-  body('hora_inicio').matches(/^[0-2][0-9]:[0-5][0-9]$/).withMessage('Hora inválida'),
-  body('hora_fin').matches(/^[0-2][0-9]:[0-5][0-9]$/).withMessage('Hora inválida'),
-  body('numero_asistentes').isInt({ min: 1 }).withMessage('Número de asistentes inválido')
+  body('instalacion_id').notEmpty().withMessage('Instalacion requerida'),
+  body('fecha').isISO8601().withMessage('Fecha invalida'),
+  body('hora_inicio').matches(/^[0-2][0-9]:[0-5][0-9]$/).withMessage('Hora invalida'),
+  body('hora_fin').matches(/^[0-2][0-9]:[0-5][0-9]$/).withMessage('Hora invalida'),
+  body('numero_asistentes').isInt({ min: 1 }).withMessage('Numero de asistentes invalido')
 ], reservasController.crearReserva);
 
 /**
@@ -32,7 +32,12 @@ router.get('/disponibilidad/:instalacion_id', reservasController.obtenerDisponib
  * PUT /api/reservas/:id
  * Actualizar reserva
  */
-router.put('/:id', verificarToken, reservasController.actualizarReserva);
+router.put('/:id', verificarToken, [
+  body('fecha').optional().isISO8601().withMessage('Fecha invalida'),
+  body('hora_inicio').optional().matches(/^[0-2][0-9]:[0-5][0-9]$/).withMessage('Hora invalida'),
+  body('hora_fin').optional().matches(/^[0-2][0-9]:[0-5][0-9]$/).withMessage('Hora invalida'),
+  body('numero_asistentes').optional().isInt({ min: 1 }).withMessage('Numero de asistentes invalido')
+], reservasController.actualizarReserva);
 
 /**
  * DELETE /api/reservas/:id

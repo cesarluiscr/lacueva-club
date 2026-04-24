@@ -16,18 +16,19 @@ const sequelize = new Sequelize(
       acquire: 30000,
       idle: 10000
     },
-    timezone: '-06:00' // Zona horaria Costa Rica
+    timezone: '-06:00'
   }
 );
 
-// Probar conexión
-sequelize.authenticate()
-  .then(() => {
-    console.log('✅ Conexión a BD establecida correctamente');
-  })
-  .catch(err => {
-    console.error('❌ Error conectando a BD:', err);
-    process.exit(1);
-  });
+sequelize.probarConexion = async () => {
+  try {
+    await sequelize.authenticate();
+    console.log('Conexion a BD establecida correctamente');
+    return true;
+  } catch (error) {
+    console.error('Error conectando a BD:', error.message);
+    return false;
+  }
+};
 
 module.exports = sequelize;

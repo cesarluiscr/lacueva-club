@@ -1,105 +1,67 @@
-const express = require('express');
+﻿const express = require('express');
 const router = express.Router();
+const { Instalacion } = require('../models');
 
-/**
- * GET /api/instalaciones
- * Obtener todas las instalaciones
- */
-router.get('/', (req, res) => {
-  const instalaciones = [
-    {
-      id: 1,
-      nombre: 'Piscina Olímpica',
-      descripcion: 'Piscina de competencia con 50 metros de largo',
-      capacidad: 300,
-      imagen: '/images/piscina-olimpica.jpg',
-      horarios: '6:00 AM - 6:00 PM'
-    },
-    {
-      id: 2,
-      nombre: 'Canchas de Fútbol',
-      descripcion: 'Dos canchas de césped sintético',
-      capacidad: 40,
-      imagen: '/images/canchas-futbol.jpg',
-      horarios: '7:00 AM - 9:00 PM'
-    },
-    {
-      id: 3,
-      nombre: 'Canchas de Tenis',
-      descripcion: 'Cuatro canchas de tenis con iluminación',
-      capacidad: 8,
-      imagen: '/images/canchas-tenis.jpg',
-      horarios: '7:00 AM - 9:00 PM'
-    },
-    {
-      id: 4,
-      nombre: 'Gimnasio',
-      descripcion: 'Equipos modernos y entrenadores certificados',
-      capacidad: 50,
-      imagen: '/images/gimnasio.jpg',
-      horarios: '6:00 AM - 9:00 PM'
-    },
-    {
-      id: 5,
-      nombre: 'Salones para Eventos',
-      descripcion: 'Salones para conferencias, bodas y eventos',
-      capacidad: 200,
-      imagen: '/images/salones.jpg',
-      horarios: 'Flexible'
-    },
-    {
-      id: 6,
-      nombre: 'Restaurante',
-      descripcion: 'Restaurante con vista a las instalaciones',
-      capacidad: 100,
-      imagen: '/images/restaurante.jpg',
-      horarios: '11:00 AM - 9:00 PM'
-    }
-  ];
+router.get('/', async (req, res) => {
+  try {
+    const instalaciones = await Instalacion.findAll({
+      order: [['nombre', 'ASC']]
+    });
 
-  res.json({
-    success: true,
-    data: instalaciones
-  });
+    res.json({
+      success: true,
+      data: instalaciones.map((instalacion) => ({
+        id: instalacion.id,
+        nombre: instalacion.nombre,
+        descripcion: instalacion.descripcion,
+        tipo: instalacion.tipo,
+        capacidad: instalacion.capacidad,
+        ubicacion: instalacion.ubicacion,
+        imagen_url: instalacion.imagen_url,
+        horario_apertura: instalacion.horario_apertura,
+        horario_cierre: instalacion.horario_cierre,
+        tarifa_socio: instalacion.tarifa_socio,
+        tarifa_visitante: instalacion.tarifa_visitante,
+        requiere_reserva: instalacion.requiere_reserva,
+        estado: instalacion.estado
+      }))
+    });
+  } catch (error) {
+    console.error('Error obteniendo instalaciones:', error);
+    res.status(500).json({ success: false, error: 'Error al obtener instalaciones' });
+  }
 });
 
-/**
- * GET /api/instalaciones/:id
- * Obtener detalles de una instalación
- */
-router.get('/:id', (req, res) => {
-  const { id } = req.params;
+router.get('/:id', async (req, res) => {
+  try {
+    const instalacion = await Instalacion.findByPk(req.params.id);
 
-  const instalacion = {
-    id: parseInt(id),
-    nombre: 'Piscina Olímpica',
-    descripcion: 'Piscina de competencia con 50 metros de largo',
-    descripcion_completa: 'Nuestra piscina olímpica cuenta con las mejores instalaciones para natación competitiva y recreativa. Ideal para entrenamientos, clases y eventos.',
-    capacidad: 300,
-    imagen: '/images/piscina-olimpica.jpg',
-    galeriaFotos: [
-      '/images/piscina-1.jpg',
-      '/images/piscina-2.jpg',
-      '/images/piscina-3.jpg'
-    ],
-    horarios: {
-      lunes_viernes: '6:00 AM - 6:00 PM',
-      sabado_domingo: '8:00 AM - 5:00 PM'
-    },
-    servicios: [
-      'Clases de natación',
-      'Salvavidas disponible',
-      'Vestuarios',
-      'Lockers'
-    ],
-    tarifa_visitante: 15.00,
-    requiere_reserva: true
-  };
+    if (!instalacion) {
+      return res.status(404).json({ success: false, error: 'Instalacion no encontrada' });
+    }
 
-  res.json({
-    success: true,
-    data: instalacion
-  });
+    res.json({
+      success: true,
+      data: {
+        id: instalacion.id,
+        nombre: instalacion.nombre,
+        descripcion: instalacion.descripcion,
+        tipo: instalacion.tipo,
+        capacidad: instalacion.capacidad,
+        ubicacion: instalacion.ubicacion,
+        imagen_url: instalacion.imagen_url,
+        horario_apertura: instalacion.horario_apertura,
+        horario_cierre: instalacion.horario_cierre,
+        tarifa_socio: instalacion.tarifa_socio,
+        tarifa_visitante: instalacion.tarifa_visitante,
+        requiere_reserva: instalacion.requiere_reserva,
+        estado: instalacion.estado
+      }
+    });
+  } catch (error) {
+    console.error('Error obteniendo instalacion:', error);
+    res.status(500).json({ success: false, error: 'Error al obtener instalacion' });
+  }
 });
 
 module.exports = router;
