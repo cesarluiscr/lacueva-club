@@ -5,10 +5,6 @@ import logoElegante from '../assets/logo-lacueva-elegante.jpg'
 export default function Home() {
   return (
     <div>
-      {/* TEST BANNER */}
-      <div style={{background:'red',color:'white',textAlign:'center',padding:'20px',fontSize:'24px',fontWeight:'bold'}}>
-        ✅ SITIO ACTUALIZADO - {new Date().getFullYear()}
-      </div>
       {/* Hero Section */}
       <section className="relative h-screen bg-gradient-to-br overflow-hidden" style={{backgroundImage: 'linear-gradient(135deg, #003AAD 0%, #0061FF 55%, #1DB87B 100%)'}}>
         {/* Background Pattern */}
