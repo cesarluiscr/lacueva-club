@@ -7,16 +7,16 @@
 @tailwind utilities;
 
 :root {
-  /* Paleta Azul y Verde Moderna */
-  --color-primary: #0061FF;
-  --color-primary-light: #4D94FF;
-  --color-primary-dark: #003AAD;
-  --color-secondary: #1DB87B;
-  --color-secondary-light: #4ECDA4;
-  --color-secondary-dark: #0E9D5C;
-  --color-accent: #06B6D4;
-  --color-dark: #0F172A;
-  --color-light: #F0F9FF;
+  /* Paleta Azul Marino y Plata */
+  --color-primary: #0A1628;
+  --color-primary-light: #0D1F3C;
+  --color-primary-dark: #060E1C;
+  --color-secondary: #C8D6E5;
+  --color-secondary-light: #E8F0F8;
+  --color-secondary-dark: #A8BECE;
+  --color-accent: #C8D6E5;
+  --color-dark: #0A1628;
+  --color-light: #f0f4f8;
   --color-gray: #64748B;
 }
 
