@@ -477,20 +477,21 @@ Error generating stack: `+a.message+`
           gap: 10px;
           padding: 15px 36px;
           border-radius: 4px;
-          border: 1px solid ${Z};
-          color: #fff;
+          border: 2px solid ${Z};
+          color: ${Kn};
           font-weight: 700;
           font-size: 0.9rem;
           letter-spacing: 1.5px;
           text-transform: uppercase;
           text-decoration: none;
-          background: rgba(201,168,76,0.05);
+          background: rgba(201,168,76,0.12);
           transition: all 0.3s ease;
         }
         .btn-gold-outline:hover {
-          background: rgba(201,168,76,0.15);
-          color: ${Kn};
+          background: rgba(201,168,76,0.22);
+          color: #fff;
           transform: translateY(-2px);
+          box-shadow: 0 4px 20px rgba(201,168,76,0.3);
         }
 
         /* ─── SECCIONES ─── */
