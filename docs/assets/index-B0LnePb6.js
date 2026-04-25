@@ -1659,6 +1659,7 @@ Personas: ${a}`,ctz:"America/Costa_Rica"});window.open(`https://calendar.google.
           margin-bottom: 10px;
           overflow: hidden;
           transition: border-color 0.2s;
+          background: #161616;
         }
         .cnt-faq-item:hover { border-color: rgba(201,168,76,0.3); }
         .cnt-faq-item summary {
