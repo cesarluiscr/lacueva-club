@@ -1,19 +1,14 @@
 import { useState, useContext } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X, Moon, Sun } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { ThemeContext } from '../context/ThemeContext'
 
-const NAVY = '#0A1628'
-const SILVER = '#C8D6E5'
-const SILVER_BRIGHT = '#E8F0F8'
-const SILVER_DIM = 'rgba(200,214,229,0.55)'
-const SILVER_ACCENT = '#A8BECE'
-const BORDER = 'rgba(200,214,229,0.18)'
-const ACTIVE_BG = 'rgba(200,214,229,0.1)'
+const GOLD = '#C9A84C'
+const GOLD_DIM = 'rgba(201,168,76,0.55)'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
-  const { isDark, toggleTheme } = useContext(ThemeContext)
+  const { isDark } = useContext(ThemeContext)
   const location = useLocation()
 
   const navLinks = [
@@ -26,183 +21,118 @@ export default function Navbar() {
   const isActive = (path) => location.pathname === path
 
   return (
-    <nav style={{
-      background: `linear-gradient(90deg, #060E1C 0%, ${NAVY} 50%, #0D1F3C 100%)`,
-      borderBottom: `1px solid ${BORDER}`,
-      boxShadow: '0 4px 32px rgba(0,0,0,0.45)',
-      position: 'sticky',
-      top: 0,
-      zIndex: 50,
-    }}>
-      {/* Línea plata superior */}
-      <div style={{
-        height: '2px',
-        background: `linear-gradient(90deg, transparent 0%, ${SILVER_ACCENT} 30%, ${SILVER_BRIGHT} 50%, ${SILVER_ACCENT} 70%, transparent 100%)`,
-        opacity: 0.6,
-      }} />
+    <>
+      <style>{`
+        .navbar {
+          background: #0A0A0A;
+          border-bottom: 1px solid rgba(201,168,76,0.2);
+          box-shadow: 0 2px 20px rgba(0,0,0,0.5);
+          position: sticky;
+          top: 0;
+          z-index: 50;
+        }
+        .navbar-inner {
+          max-width: 1280px;
+          margin: 0 auto;
+          padding: 0 24px;
+          display: flex;
+          align-items: center;
+          height: 60px;
+          gap: 8px;
+        }
+        .nav-link {
+          padding: 6px 20px;
+          font-size: 0.82rem;
+          font-weight: 700;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          text-decoration: none;
+          color: rgba(201,168,76,0.55);
+          border-bottom: 2px solid transparent;
+          transition: all 0.25s ease;
+          white-space: nowrap;
+        }
+        .nav-link:hover {
+          color: ${GOLD};
+          border-bottom-color: rgba(201,168,76,0.4);
+        }
+        .nav-link.active {
+          color: ${GOLD};
+          border-bottom-color: ${GOLD};
+        }
+        .navbar-spacer { flex: 1; }
+        .navbar-gold-line {
+          height: 1px;
+          background: linear-gradient(90deg, transparent, rgba(201,168,76,0.35), transparent);
+        }
+        .hamburger {
+          display: none;
+          padding: 8px;
+          background: rgba(201,168,76,0.08);
+          border: 1px solid rgba(201,168,76,0.2);
+          border-radius: 4px;
+          color: ${GOLD};
+          cursor: pointer;
+        }
+        .mobile-menu {
+          background: #0d0d0d;
+          border-top: 1px solid rgba(201,168,76,0.15);
+          padding: 8px 0 16px;
+        }
+        .mobile-link {
+          display: block;
+          padding: 12px 24px;
+          font-size: 0.82rem;
+          font-weight: 700;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          text-decoration: none;
+          color: rgba(201,168,76,0.55);
+          border-left: 3px solid transparent;
+          transition: all 0.2s;
+        }
+        .mobile-link:hover, .mobile-link.active {
+          color: ${GOLD};
+          border-left-color: ${GOLD};
+          background: rgba(201,168,76,0.05);
+        }
+        @media (max-width: 767px) {
+          .nav-desktop { display: none !important; }
+          .hamburger { display: flex !important; }
+        }
+        @media (min-width: 768px) {
+          .hamburger { display: none !important; }
+          .nav-desktop { display: flex !important; }
+        }
+      `}</style>
 
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', height: '64px', gap: '40px' }}>
-
-          {/* Menús desktop a la izquierda */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }} className="hidden-mobile">
+      <nav className="navbar">
+        <div className="navbar-gold-line" />
+        <div className="navbar-inner">
+          <div className="nav-desktop" style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
             {navLinks.map(({ to, label }) => (
-              <Link
-                key={to}
-                to={to}
-                style={{
-                  color: isActive(to) ? SILVER_BRIGHT : SILVER_DIM,
-                  padding: '8px 20px',
-                  borderRadius: '6px',
-                  fontWeight: isActive(to) ? 700 : 500,
-                  fontSize: '0.88rem',
-                  letterSpacing: '0.8px',
-                  textTransform: 'uppercase',
-                  textDecoration: 'none',
-                  background: isActive(to) ? ACTIVE_BG : 'transparent',
-                  borderBottom: isActive(to) ? `2px solid ${SILVER}` : '2px solid transparent',
-                  transition: 'all 0.25s ease',
-                  display: 'inline-block',
-                }}
-                onMouseEnter={e => {
-                  if (!isActive(to)) {
-                    e.currentTarget.style.color = SILVER_BRIGHT
-                    e.currentTarget.style.background = ACTIVE_BG
-                    e.currentTarget.style.borderBottomColor = SILVER_DIM
-                  }
-                }}
-                onMouseLeave={e => {
-                  if (!isActive(to)) {
-                    e.currentTarget.style.color = SILVER_DIM
-                    e.currentTarget.style.background = 'transparent'
-                    e.currentTarget.style.borderBottomColor = 'transparent'
-                  }
-                }}
-              >
+              <Link key={to} to={to} className={`nav-link ${isActive(to) ? 'active' : ''}`}>
                 {label}
               </Link>
             ))}
           </div>
-
-          {/* Spacer */}
-          <div style={{ flex: 1 }} />
-
-          {/* Derecha: separador + dark mode */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }} className="hidden-mobile">
-            <div style={{
-              width: '1px',
-              height: '28px',
-              background: `linear-gradient(to bottom, transparent, ${SILVER_ACCENT}, transparent)`,
-              opacity: 0.4,
-            }} />
-            <button
-              onClick={toggleTheme}
-              title={isDark ? 'Modo claro' : 'Modo oscuro'}
-              style={{
-                padding: '8px',
-                borderRadius: '8px',
-                background: 'rgba(200,214,229,0.07)',
-                border: `1px solid ${BORDER}`,
-                color: SILVER,
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                transition: 'all 0.2s',
-              }}
-              onMouseEnter={e => e.currentTarget.style.background = 'rgba(200,214,229,0.15)'}
-              onMouseLeave={e => e.currentTarget.style.background = 'rgba(200,214,229,0.07)'}
-            >
-              {isDark ? <Sun size={16} /> : <Moon size={16} />}
-            </button>
-          </div>
-
-          {/* Hamburguesa móvil */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="show-mobile"
-            style={{
-              padding: '8px',
-              borderRadius: '8px',
-              background: 'rgba(200,214,229,0.07)',
-              border: `1px solid ${BORDER}`,
-              color: SILVER,
-              cursor: 'pointer',
-              display: 'none',
-            }}
-          >
+          <div className="navbar-spacer" />
+          <button className="hamburger" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
+        <div className="navbar-gold-line" />
 
-        {/* Menú móvil */}
         {isOpen && (
-          <div style={{
-            borderTop: `1px solid ${BORDER}`,
-            paddingBottom: '16px',
-            paddingTop: '8px',
-          }}>
+          <div className="mobile-menu">
             {navLinks.map(({ to, label }) => (
-              <Link
-                key={to}
-                to={to}
-                style={{
-                  display: 'block',
-                  padding: '12px 20px',
-                  color: isActive(to) ? SILVER_BRIGHT : SILVER_DIM,
-                  fontWeight: isActive(to) ? 700 : 500,
-                  fontSize: '0.9rem',
-                  letterSpacing: '0.8px',
-                  textTransform: 'uppercase',
-                  textDecoration: 'none',
-                  borderLeft: isActive(to) ? `3px solid ${SILVER}` : '3px solid transparent',
-                  background: isActive(to) ? ACTIVE_BG : 'transparent',
-                }}
-                onClick={() => setIsOpen(false)}
-              >
+              <Link key={to} to={to} className={`mobile-link ${isActive(to) ? 'active' : ''}`} onClick={() => setIsOpen(false)}>
                 {label}
               </Link>
             ))}
-            <div style={{ padding: '8px 20px', marginTop: '4px' }}>
-              <button
-                onClick={toggleTheme}
-                style={{
-                  padding: '8px 16px',
-                  borderRadius: '8px',
-                  background: 'rgba(200,214,229,0.07)',
-                  border: `1px solid ${BORDER}`,
-                  color: SILVER,
-                  cursor: 'pointer',
-                  fontSize: '0.85rem',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                }}
-              >
-                {isDark ? <Sun size={14} /> : <Moon size={14} />}
-                {isDark ? 'Modo claro' : 'Modo oscuro'}
-              </button>
-            </div>
           </div>
         )}
-      </div>
-
-      {/* Línea plata inferior */}
-      <div style={{
-        height: '1px',
-        background: `linear-gradient(90deg, transparent 0%, ${SILVER_ACCENT} 30%, ${SILVER_BRIGHT} 50%, ${SILVER_ACCENT} 70%, transparent 100%)`,
-        opacity: 0.25,
-      }} />
-
-      <style>{`
-        @media (min-width: 768px) {
-          .hidden-mobile { display: flex !important; }
-          .show-mobile { display: none !important; }
-        }
-        @media (max-width: 767px) {
-          .hidden-mobile { display: none !important; }
-          .show-mobile { display: flex !important; }
-        }
-      `}</style>
-    </nav>
+      </nav>
+    </>
   )
 }
