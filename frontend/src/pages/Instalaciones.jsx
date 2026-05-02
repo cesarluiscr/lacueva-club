@@ -2,13 +2,6 @@ import { useState } from 'react'
 import { MapPin, Clock, Users, X, ChevronLeft, ChevronRight } from 'lucide-react'
 import CalendarBooking from '../components/CalendarBooking'
 
-// Absolute paths - Vite prepends the base URL automatically for these
-const gimnasio1 = '/images/gimnasio1.jpeg?v=1'
-const gimnasio2 = '/images/gimnasio2.jpeg?v=1'
-const gimnasio3 = '/images/gimnasio3.jpeg?v=1'
-const gimnasio4 = '/images/gimnasio4.jpeg?v=1'
-const gimnasio5 = '/images/gimnasio5.jpeg?v=1'
-
 const GOLD = '#C9A84C'
 const GOLD_LIGHT = '#E8C96B'
 const GOLD_DIM = 'rgba(201,168,76,0.55)'
@@ -18,6 +11,14 @@ const DARK = '#161616'
 export default function Instalaciones() {
   const [selectedInstalacion, setSelectedInstalacion] = useState(null)
   const [galeryIndex, setGaleryIndex] = useState(0)
+
+  // Construct image paths with BASE_URL
+  const BASE = import.meta.env.BASE_URL
+  const gimnasio1 = `${BASE}images/gimnasio1.jpeg?v=1`
+  const gimnasio2 = `${BASE}images/gimnasio2.jpeg?v=1`
+  const gimnasio3 = `${BASE}images/gimnasio3.jpeg?v=1`
+  const gimnasio4 = `${BASE}images/gimnasio4.jpeg?v=1`
+  const gimnasio5 = `${BASE}images/gimnasio5.jpeg?v=1`
 
   const instalaciones = [
     {
