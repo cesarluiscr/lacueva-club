@@ -2,12 +2,13 @@ import { useState } from 'react'
 import { MapPin, Clock, Users, X, ChevronLeft, ChevronRight } from 'lucide-react'
 import CalendarBooking from '../components/CalendarBooking'
 
-// Use public folder for better GitHub Pages compatibility
-const gimnasio1 = '/lacueva-club/images/gimnasio1.jpeg'
-const gimnasio2 = '/lacueva-club/images/gimnasio2.jpeg'
-const gimnasio3 = '/lacueva-club/images/gimnasio3.jpeg'
-const gimnasio4 = '/lacueva-club/images/gimnasio4.jpeg'
-const gimnasio5 = '/lacueva-club/images/gimnasio5.jpeg'
+// Use BASE_URL for dynamic base path (works locally and on GitHub Pages)
+const BASE = import.meta.env.BASE_URL
+const gimnasio1 = `${BASE}images/gimnasio1.jpeg`
+const gimnasio2 = `${BASE}images/gimnasio2.jpeg`
+const gimnasio3 = `${BASE}images/gimnasio3.jpeg`
+const gimnasio4 = `${BASE}images/gimnasio4.jpeg`
+const gimnasio5 = `${BASE}images/gimnasio5.jpeg`
 
 const GOLD = '#C9A84C'
 const GOLD_LIGHT = '#E8C96B'
