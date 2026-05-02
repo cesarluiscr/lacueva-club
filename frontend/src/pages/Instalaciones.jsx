@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { MapPin, Clock, Users, X } from 'lucide-react'
+import { MapPin, Clock, Users, X, ChevronLeft, ChevronRight } from 'lucide-react'
 import CalendarBooking from '../components/CalendarBooking'
 
 const GOLD = '#C9A84C'
@@ -10,6 +10,7 @@ const DARK = '#161616'
 
 export default function Instalaciones() {
   const [selectedInstalacion, setSelectedInstalacion] = useState(null)
+  const [galeryIndex, setGaleryIndex] = useState(0)
 
   const instalaciones = [
     {
@@ -46,10 +47,17 @@ export default function Instalaciones() {
       id: 4,
       nombre: 'Gimnasio',
       descripcion: 'Equipos modernos con entrenadores certificados',
-      imagen: 'https://via.placeholder.com/400x300?text=Gimnasio',
+      imagen: new URL('../assets/gimnasio1.jpeg', import.meta.url).href,
+      imagenes: [
+        new URL('../assets/gimnasio1.jpeg', import.meta.url).href,
+        new URL('../assets/gimnasio2.jpeg', import.meta.url).href,
+        new URL('../assets/gimnasio3.jpeg', import.meta.url).href,
+        new URL('../assets/gimnasio4.jpeg', import.meta.url).href,
+        new URL('../assets/gimnasio5.jpeg', import.meta.url).href,
+      ],
       capacidad: 50,
       horarios: '6:00 AM - 9:00 PM',
-      servicios: ['Entrenadores', 'Clases grupales', 'Duchas'],
+      servicios: ['Entrenadores certificados', 'Clases grupales', 'Duchas', 'Áreas de ejercicio variadas'],
       tarifa_visitante: 10.00
     },
     {
@@ -444,14 +452,90 @@ export default function Instalaciones() {
             onClick={(e) => { if (e.target === e.currentTarget) setSelectedInstalacion(null) }}
           >
             <div className="inst-modal">
-              <img
-                src={selectedInstalacion.imagen}
-                alt={`Imagen de ${selectedInstalacion.nombre}`}
-                className="inst-modal-img"
-                loading="lazy"
-              />
+              {/* Gallery */}
+              <div style={{ position: 'relative' }}>
+                <img
+                  src={selectedInstalacion.imagenes ? selectedInstalacion.imagenes[galeryIndex] : selectedInstalacion.imagen}
+                  alt={`Imagen de ${selectedInstalacion.nombre}`}
+                  className="inst-modal-img"
+                  loading="lazy"
+                />
+                {selectedInstalacion.imagenes && selectedInstalacion.imagenes.length > 1 && (
+                  <>
+                    <button
+                      onClick={() => setGaleryIndex((prev) => (prev === 0 ? selectedInstalacion.imagenes.length - 1 : prev - 1))}
+                      style={{
+                        position: 'absolute',
+                        left: '12px',
+                        top: '50%',
+                        transform: 'translateY(-50%)',
+                        background: 'rgba(0,0,0,0.6)',
+                        border: '1px solid rgba(201,168,76,0.3)',
+                        borderRadius: '50%',
+                        width: '36px',
+                        height: '36px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: '#C9A84C',
+                        cursor: 'pointer',
+                        transition: 'background 0.2s',
+                        zIndex: 1
+                      }}
+                      onMouseEnter={(e) => e.target.style.background = 'rgba(0,0,0,0.8)'}
+                      onMouseLeave={(e) => e.target.style.background = 'rgba(0,0,0,0.6)'}
+                    >
+                      <ChevronLeft size={18} />
+                    </button>
+                    <button
+                      onClick={() => setGaleryIndex((prev) => (prev === selectedInstalacion.imagenes.length - 1 ? 0 : prev + 1))}
+                      style={{
+                        position: 'absolute',
+                        right: '12px',
+                        top: '50%',
+                        transform: 'translateY(-50%)',
+                        background: 'rgba(0,0,0,0.6)',
+                        border: '1px solid rgba(201,168,76,0.3)',
+                        borderRadius: '50%',
+                        width: '36px',
+                        height: '36px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: '#C9A84C',
+                        cursor: 'pointer',
+                        transition: 'background 0.2s',
+                        zIndex: 1
+                      }}
+                      onMouseEnter={(e) => e.target.style.background = 'rgba(0,0,0,0.8)'}
+                      onMouseLeave={(e) => e.target.style.background = 'rgba(0,0,0,0.6)'}
+                    >
+                      <ChevronRight size={18} />
+                    </button>
+                    <div style={{
+                      position: 'absolute',
+                      bottom: '12px',
+                      left: '50%',
+                      transform: 'translateX(-50%)',
+                      background: 'rgba(0,0,0,0.6)',
+                      color: '#C9A84C',
+                      padding: '4px 12px',
+                      borderRadius: '20px',
+                      fontSize: '0.8rem',
+                      fontWeight: 600,
+                      border: '1px solid rgba(201,168,76,0.3)',
+                      zIndex: 1
+                    }}>
+                      {galeryIndex + 1} / {selectedInstalacion.imagenes.length}
+                    </div>
+                  </>
+                )}
+              </div>
               <button
-                onClick={() => setSelectedInstalacion(null)}
+                onClick={() => {
+                  setSelectedInstalacion(null)
+                  setGaleryIndex(0)
+                }}
                 className="inst-modal-close"
                 aria-label="Cerrar"
               >
