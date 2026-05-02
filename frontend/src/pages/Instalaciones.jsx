@@ -1,6 +1,11 @@
 import { useState } from 'react'
 import { MapPin, Clock, Users, X, ChevronLeft, ChevronRight } from 'lucide-react'
 import CalendarBooking from '../components/CalendarBooking'
+import gimnasio1 from '../assets/gimnasio1.jpeg'
+import gimnasio2 from '../assets/gimnasio2.jpeg'
+import gimnasio3 from '../assets/gimnasio3.jpeg'
+import gimnasio4 from '../assets/gimnasio4.jpeg'
+import gimnasio5 from '../assets/gimnasio5.jpeg'
 
 const GOLD = '#C9A84C'
 const GOLD_LIGHT = '#E8C96B'
@@ -47,14 +52,8 @@ export default function Instalaciones() {
       id: 4,
       nombre: 'Gimnasio',
       descripcion: 'Equipos modernos con entrenadores certificados',
-      imagen: new URL('../assets/gimnasio1.jpeg', import.meta.url).href,
-      imagenes: [
-        new URL('../assets/gimnasio1.jpeg', import.meta.url).href,
-        new URL('../assets/gimnasio2.jpeg', import.meta.url).href,
-        new URL('../assets/gimnasio3.jpeg', import.meta.url).href,
-        new URL('../assets/gimnasio4.jpeg', import.meta.url).href,
-        new URL('../assets/gimnasio5.jpeg', import.meta.url).href,
-      ],
+      imagen: gimnasio1,
+      imagenes: [gimnasio1, gimnasio2, gimnasio3, gimnasio4, gimnasio5],
       capacidad: 50,
       horarios: '6:00 AM - 9:00 PM',
       servicios: ['Entrenadores certificados', 'Clases grupales', 'Duchas', 'Áreas de ejercicio variadas'],
