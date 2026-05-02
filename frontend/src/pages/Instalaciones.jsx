@@ -12,17 +12,15 @@ export default function Instalaciones() {
   const [selectedInstalacion, setSelectedInstalacion] = useState(null)
   const [galeryIndex, setGaleryIndex] = useState(0)
 
-  // Construct image paths with BASE_URL
-  const BASE = import.meta.env.BASE_URL
-  const gimnasio1 = `${BASE}images/gimnasio1.jpeg?v=1`
-  const gimnasio2 = `${BASE}images/gimnasio2.jpeg?v=1`
-  const gimnasio3 = `${BASE}images/gimnasio3.jpeg?v=1`
-  const gimnasio4 = `${BASE}images/gimnasio4.jpeg?v=1`
-  const gimnasio5 = `${BASE}images/gimnasio5.jpeg?v=1`
-
-  // Debug: Log the paths to console
-  console.log('BASE_URL:', BASE)
-  console.log('Image paths:', { gimnasio1, gimnasio2, gimnasio3, gimnasio4, gimnasio5 })
+  // Relative paths from HTML location
+  // HTML is at /lacueva-club/index.html
+  // Images are at /lacueva-club/images/
+  // From HTML's perspective: images/...
+  const gimnasio1 = 'images/gimnasio1.jpeg'
+  const gimnasio2 = 'images/gimnasio2.jpeg'
+  const gimnasio3 = 'images/gimnasio3.jpeg'
+  const gimnasio4 = 'images/gimnasio4.jpeg'
+  const gimnasio5 = 'images/gimnasio5.jpeg'
 
   const instalaciones = [
     {
