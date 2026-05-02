@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import { MapPin, Clock, Users, X, ChevronLeft, ChevronRight } from 'lucide-react'
 import CalendarBooking from '../components/CalendarBooking'
-import gimnasio1 from '../assets/gimnasio1.jpeg'
-import gimnasio2 from '../assets/gimnasio2.jpeg'
-import gimnasio3 from '../assets/gimnasio3.jpeg'
-import gimnasio4 from '../assets/gimnasio4.jpeg'
-import gimnasio5 from '../assets/gimnasio5.jpeg'
+
+// Gimnasio image paths - using direct URLs for GitHub Pages compatibility
+const gimnasio1 = new URL('../assets/gimnasio1.jpeg', import.meta.url).href
+const gimnasio2 = new URL('../assets/gimnasio2.jpeg', import.meta.url).href
+const gimnasio3 = new URL('../assets/gimnasio3.jpeg', import.meta.url).href
+const gimnasio4 = new URL('../assets/gimnasio4.jpeg', import.meta.url).href
+const gimnasio5 = new URL('../assets/gimnasio5.jpeg', import.meta.url).href
 
 const GOLD = '#C9A84C'
 const GOLD_LIGHT = '#E8C96B'
