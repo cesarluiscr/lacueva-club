@@ -1,176 +1,150 @@
-import { Phone, MessageCircle, Mail, MapPin, Clock, Share2, Info, ExternalLink } from 'lucide-react'
+import { Phone, MessageCircle, Mail, MapPin, Share2, ExternalLink } from 'lucide-react'
+import { Link } from 'react-router-dom'
+
+const GOLD = '#C9A84C'
+const GOLD_DIM = 'rgba(201,168,76,0.55)'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
-  const socialLinks = [
-    {
-      icon: Share2,
-      href: 'https://facebook.com/lacuevaclub',
-      label: 'Facebook',
-      colorClass: 'text-blue-600',
-      bgHoverClass: 'hover:bg-blue-700'
-    },
-    {
-      icon: Share2,
-      href: 'https://instagram.com/lacuevaclub',
-      label: 'Instagram',
-      colorClass: 'text-pink-600',
-      bgHoverClass: 'hover:bg-pink-700'
-    },
-    {
-      icon: ExternalLink,
-      href: 'https://github.com/cesarluiscr/lacueva-club',
-      label: 'Repositorio GitHub',
-      colorClass: 'text-gray-400',
-      bgHoverClass: 'hover:bg-gray-700'
-    },
-  ]
-
   return (
-    <footer className="bg-gray-900 dark:bg-gray-950 text-white mt-12 transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 py-12">
-          {/* About */}
+    <footer style={{
+      background: '#0d0d0d',
+      borderTop: '1px solid rgba(201,168,76,0.2)',
+      color: '#e8e8e8',
+    }}>
+      {/* Gold line top */}
+      <div style={{
+        height: '1px',
+        background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.4), transparent)',
+      }} />
+
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '56px 24px 32px' }}>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+          gap: '40px',
+          marginBottom: '48px',
+        }}>
+          {/* Brand */}
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 200 240"
-                className="h-10 w-auto"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g id="tree">
-                  <ellipse cx="60" cy="40" rx="8" ry="12" fill="white" transform="rotate(-35 60 40)" opacity="0.9"/>
-                  <ellipse cx="100" cy="35" rx="8" ry="12" fill="white" transform="rotate(0 100 35)" opacity="0.95"/>
-                  <ellipse cx="140" cy="40" rx="8" ry="12" fill="white" transform="rotate(35 140 40)" opacity="0.9"/>
-                  <rect x="95" y="125" width="10" height="60" fill="white" rx="5"/>
-                </g>
-              </svg>
-              <div>
-                <div className="text-xs font-bold text-blue-400 tracking-widest" style={{letterSpacing: '2px'}}>CLUB CAMPESTRE</div>
-                <div style={{
-                  fontFamily: "Georgia, 'Playfair Display', serif",
-                  fontSize: '1.75rem',
-                  fontWeight: '700',
-                  fontStyle: 'italic',
-                  color: 'white',
-                  letterSpacing: '0.5px',
-                  lineHeight: '1.2',
-                  display: 'block'
-                }}>La Cueva</div>
-              </div>
+            <div style={{ marginBottom: '6px', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '4px', color: GOLD_DIM, textTransform: 'uppercase' }}>
+              Club Campestre
             </div>
-            <p className="text-gray-400 text-sm">
+            <div style={{
+              fontFamily: "Georgia, 'Playfair Display', serif",
+              fontSize: '2rem',
+              fontWeight: 700,
+              fontStyle: 'italic',
+              color: GOLD,
+              lineHeight: 1.1,
+              marginBottom: '12px',
+            }}>
+              La Cueva
+            </div>
+            <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.4)', lineHeight: 1.6 }}>
               55 años de excelencia en Alajuela, Costa Rica.
             </p>
-
-            {/* Social Media Icons */}
-            <div className="flex gap-4 mt-6" role="navigation" aria-label="Redes sociales del club">
-              {socialLinks.map((social) => {
-                const Icon = social.icon
-                return (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    aria-label={`Visita nuestro ${social.label}`}
-                    title={`Club Campestre La Cueva en ${social.label}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`p-3 rounded-lg bg-gray-800 transition-all duration-300 ease-in-out transform hover:scale-110 hover:-translate-y-1 focus:ring-2 focus:ring-green-500 focus:outline-none ${social.bgHoverClass}`}
-                  >
-                    <Icon size={24} className={social.colorClass} aria-hidden="true" />
-                  </a>
-                )
-              })}
+            <div style={{ display: 'flex', gap: '10px', marginTop: '18px' }}>
+              {[
+                { href: 'https://facebook.com/lacuevaclub', label: 'Facebook', icon: <Share2 size={18} /> },
+                { href: 'https://instagram.com/lacuevaclub', label: 'Instagram', icon: <Share2 size={18} /> },
+                { href: 'https://github.com/cesarluiscr/lacueva-club', label: 'GitHub', icon: <ExternalLink size={18} /> },
+              ].map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  style={{
+                    width: '36px', height: '36px',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    background: 'rgba(201,168,76,0.08)',
+                    border: '1px solid rgba(201,168,76,0.2)',
+                    borderRadius: '6px',
+                    color: GOLD_DIM,
+                    transition: 'all 0.2s',
+                    textDecoration: 'none',
+                  }}
+                >
+                  {s.icon}
+                </a>
+              ))}
             </div>
           </div>
 
-          {/* Contact Info */}
+          {/* Contacto */}
           <div>
-            <h3 className="font-montserrat font-bold text-lg mb-4 text-white">Contacto</h3>
-            <div className="space-y-4 text-sm">
-              <div className="flex items-center gap-3 group cursor-pointer">
-                <div className="p-2 rounded-lg bg-blue-500/20 group-hover:bg-blue-500/30 transition">
-                  <Phone size={20} className="text-blue-400" />
+            <h3 style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', color: GOLD_DIM, marginBottom: '18px' }}>
+              Contacto
+            </h3>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              {[
+                { icon: <Phone size={15} />, text: '2433-7171', href: 'tel:24337171' },
+                { icon: <MessageCircle size={15} />, text: '7243-4203 (WhatsApp)', href: 'https://wa.me/50672434203' },
+                { icon: <Mail size={15} />, text: 'info@lacuevasa.com', href: 'mailto:info@lacuevasa.com' },
+                { icon: <MapPin size={15} />, text: 'Alajuela, Costa Rica', href: null },
+              ].map((item, idx) => (
+                <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <span style={{ color: GOLD, opacity: 0.7, flexShrink: 0 }}>{item.icon}</span>
+                  {item.href
+                    ? <a href={item.href} style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.55)', textDecoration: 'none' }}>{item.text}</a>
+                    : <span style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.55)' }}>{item.text}</span>
+                  }
                 </div>
-                <a href="tel:24337171" className="text-gray-300 group-hover:text-blue-400 transition">
-                  2433-7171
-                </a>
-              </div>
-              <div className="flex items-center gap-3 group cursor-pointer">
-                <div className="p-2 rounded-lg bg-green-500/20 group-hover:bg-green-500/30 transition">
-                  <MessageCircle size={20} className="text-green-400" />
-                </div>
-                <a href="https://wa.me/50672434203" className="text-gray-300 group-hover:text-green-400 transition">
-                  7243-4203 (WhatsApp)
-                </a>
-              </div>
-              <div className="flex items-center gap-3 group cursor-pointer">
-                <div className="p-2 rounded-lg bg-red-500/20 group-hover:bg-red-500/30 transition">
-                  <Mail size={20} className="text-red-400" />
-                </div>
-                <a href="mailto:info@lacuevasa.com" className="text-gray-300 group-hover:text-red-400 transition">
-                  info@lacuevasa.com
-                </a>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-lg bg-purple-500/20">
-                  <MapPin size={20} className="text-purple-400" />
-                </div>
-                <span className="text-gray-300">Alajuela, Costa Rica</span>
-              </div>
+              ))}
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Enlaces */}
           <div>
-            <h3 className="font-montserrat font-bold text-lg mb-4">Enlaces</h3>
-            <ul className="space-y-2 text-sm text-gray-400">
-              <li>
-                <a href="/instalaciones" className="hover:text-white">
-                  Instalaciones
+            <h3 style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', color: GOLD_DIM, marginBottom: '18px' }}>
+              Enlaces
+            </h3>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              {[
+                { to: '/#/instalaciones', label: 'Instalaciones' },
+                { to: '/#/reservas', label: 'Reservas' },
+                { to: '/#/contacto', label: 'Contacto' },
+              ].map((link) => (
+                <a
+                  key={link.label}
+                  href={link.to}
+                  style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.45)', textDecoration: 'none', transition: 'color 0.2s' }}
+                >
+                  {link.label}
                 </a>
-              </li>
-              <li>
-                <a href="/reservas" className="hover:text-white">
-                  Reservas
-                </a>
-              </li>
-              <li>
-                <a href="/contacto" className="hover:text-white">
-                  Contacto
-                </a>
-              </li>
-            </ul>
+              ))}
+            </div>
           </div>
 
           {/* Horarios */}
           <div>
-            <h3 className="font-montserrat font-bold text-lg mb-4">Horarios</h3>
-            <ul className="space-y-2 text-sm text-gray-400">
-              <li>Lunes - Viernes: 6:00 AM - 9:00 PM</li>
-              <li>Sábado: 8:00 AM - 6:00 PM</li>
-              <li>Domingo: 8:00 AM - 5:00 PM</li>
-            </ul>
+            <h3 style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', color: GOLD_DIM, marginBottom: '18px' }}>
+              Horarios
+            </h3>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.85rem', color: 'rgba(255,255,255,0.45)' }}>
+              <span>Lunes - Viernes: 6:00 AM - 9:00 PM</span>
+              <span>Sábado: 8:00 AM - 6:00 PM</span>
+              <span>Domingo: 8:00 AM - 5:00 PM</span>
+            </div>
           </div>
         </div>
 
-        {/* Bottom Footer */}
-        <div className="border-t border-gray-800 py-6 text-center text-sm text-gray-400">
-          <p>
-            &copy; {currentYear} Club Campestre La Cueva. Todos los derechos reservados.
-          </p>
-          <p className="mt-2">
-            <a href="#" className="hover:text-white mr-4">
-              Política de Privacidad
-            </a>
+        {/* Bottom */}
+        <div style={{
+          borderTop: '1px solid rgba(201,168,76,0.12)',
+          paddingTop: '24px',
+          textAlign: 'center',
+          fontSize: '0.78rem',
+          color: 'rgba(255,255,255,0.3)',
+        }}>
+          <p>&copy; {currentYear} Club Campestre La Cueva. Todos los derechos reservados.</p>
+          <p style={{ marginTop: '8px' }}>
+            <a href="#" style={{ color: 'rgba(255,255,255,0.3)', textDecoration: 'none', marginRight: '16px' }}>Política de Privacidad</a>
             |
-            <a href="#" className="hover:text-white ml-4">
-              Términos de Servicio
-            </a>
+            <a href="#" style={{ color: 'rgba(255,255,255,0.3)', textDecoration: 'none', marginLeft: '16px' }}>Términos de Servicio</a>
           </p>
         </div>
       </div>

@@ -27,7 +27,7 @@ function App() {
     <ThemeProvider>
       <Router>
         <SEO />
-        <div className="flex flex-col min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-white transition-colors">
+        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', background: '#0A0A0A', color: '#e8e8e8' }}>
           <Navbar />
           <main className="flex-grow">
             <Routes>
