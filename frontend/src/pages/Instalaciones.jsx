@@ -20,6 +20,10 @@ export default function Instalaciones() {
   const gimnasio4 = `${BASE}images/gimnasio4.jpeg?v=1`
   const gimnasio5 = `${BASE}images/gimnasio5.jpeg?v=1`
 
+  // Debug: Log the paths to console
+  console.log('BASE_URL:', BASE)
+  console.log('Image paths:', { gimnasio1, gimnasio2, gimnasio3, gimnasio4, gimnasio5 })
+
   const instalaciones = [
     {
       id: 1,
