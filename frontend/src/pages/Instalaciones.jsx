@@ -448,7 +448,12 @@ export default function Instalaciones() {
             role="dialog"
             aria-modal="true"
             aria-labelledby={`modal-title-${selectedInstalacion.id}`}
-            onClick={(e) => { if (e.target === e.currentTarget) setSelectedInstalacion(null) }}
+            onClick={(e) => {
+              if (e.target === e.currentTarget) {
+                setSelectedInstalacion(null)
+                setGaleryIndex(0)
+              }
+            }}
           >
             <div className="inst-modal">
               {/* Gallery */}
