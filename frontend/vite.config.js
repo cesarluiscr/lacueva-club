@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 const ts = Date.now()
 
 export default defineConfig({
-  base: '/lacueva-club/',
+  base: '/',
   plugins: [react()],
   build: {
     rollupOptions: {
