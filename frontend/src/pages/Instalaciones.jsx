@@ -12,13 +12,12 @@ export default function Instalaciones() {
   const [selectedInstalacion, setSelectedInstalacion] = useState(null)
   const [galeryIndex, setGaleryIndex] = useState(0)
 
-  // Relative paths work correctly on gh-pages branch
-  // gh-pages serves files from root: /images/
-  const gimnasio1 = './images/gimnasio1.jpeg'
-  const gimnasio2 = './images/gimnasio2.jpeg'
-  const gimnasio3 = './images/gimnasio3.jpeg'
-  const gimnasio4 = './images/gimnasio4.jpeg'
-  const gimnasio5 = './images/gimnasio5.jpeg'
+  // Images served from /lacueva-club/images/ on GitHub Pages
+  const gimnasio1 = '/lacueva-club/images/gimnasio1.jpeg'
+  const gimnasio2 = '/lacueva-club/images/gimnasio2.jpeg'
+  const gimnasio3 = '/lacueva-club/images/gimnasio3.jpeg'
+  const gimnasio4 = '/lacueva-club/images/gimnasio4.jpeg'
+  const gimnasio5 = '/lacueva-club/images/gimnasio5.jpeg'
 
   const instalaciones = [
     {
