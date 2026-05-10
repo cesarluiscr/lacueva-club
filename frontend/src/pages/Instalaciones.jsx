@@ -2,6 +2,13 @@ import { useState } from 'react'
 import { MapPin, Clock, Users, X, ChevronLeft, ChevronRight } from 'lucide-react'
 import CalendarBooking from '../components/CalendarBooking'
 
+import p1 from '../assets/piscinas/piscina1.jpeg'
+import p2 from '../assets/piscinas/piscina2.jpg'
+import p3 from '../assets/piscinas/piscina3.jpeg'
+import p4 from '../assets/piscinas/piscina4.jpeg'
+import p5 from '../assets/piscinas/piscina5.jpeg'
+import p6 from '../assets/piscinas/piscina6.jpeg'
+
 const GOLD = '#C9A84C'
 const GOLD_LIGHT = '#E8C96B'
 const GOLD_DIM = 'rgba(201,168,76,0.55)'
@@ -12,22 +19,16 @@ export default function Instalaciones() {
   const [selectedInstalacion, setSelectedInstalacion] = useState(null)
   const [galeryIndex, setGaleryIndex] = useState(0)
 
-  // Absolute paths with the base URL prefix for GitHub Pages
-  const gimnasio1 = '/lacueva-club/images/gimnasio1.jpeg'
-  const gimnasio2 = '/lacueva-club/images/gimnasio2.jpeg'
-  const gimnasio3 = '/lacueva-club/images/gimnasio3.jpeg'
-  const gimnasio4 = '/lacueva-club/images/gimnasio4.jpeg'
-  const gimnasio5 = '/lacueva-club/images/gimnasio5.jpeg'
-
   const instalaciones = [
     {
       id: 1,
-      nombre: 'Piscina Olímpica',
-      descripcion: 'Piscina de competencia con 50 metros de largo',
-      imagen: 'https://via.placeholder.com/400x300?text=Piscina+Olimpica',
+      nombre: 'Piscinas',
+      descripcion: 'Amplias piscinas para recreación, natación y actividades acuáticas para toda la familia',
+      imagen: p1,
+      imagenes: [p1, p2, p3, p4, p5, p6],
       capacidad: 300,
       horarios: '6:00 AM - 6:00 PM',
-      servicios: ['Clases de natación', 'Salvavidas', 'Vestuarios'],
+      servicios: ['Clases de natación', 'Salvavidas', 'Vestuarios', 'Área infantil'],
       tarifa_visitante: 15.00
     },
     {
@@ -54,8 +55,7 @@ export default function Instalaciones() {
       id: 4,
       nombre: 'Gimnasio',
       descripcion: 'Equipos modernos con entrenadores certificados',
-      imagen: gimnasio1,
-      imagenes: [gimnasio1, gimnasio2, gimnasio3, gimnasio4, gimnasio5],
+      imagen: 'https://via.placeholder.com/400x300?text=Gimnasio',
       capacidad: 50,
       horarios: '6:00 AM - 9:00 PM',
       servicios: ['Entrenadores certificados', 'Clases grupales', 'Duchas', 'Áreas de ejercicio variadas'],
